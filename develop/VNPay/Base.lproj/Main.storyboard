@@ -26,9 +26,21 @@
                                     <constraint firstAttribute="width" constant="255" id="8S5-Xd-NFI"/>
                                 </constraints>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gMs-69-iHc" customClass="PillTextField" customModule="VNPay" customModuleProvider="target">
+                                <rect key="frame" x="57.5" y="225" width="260" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="262-dD-1zJ"/>
+                                    <constraint firstAttribute="width" constant="260" id="3zy-rh-v4H"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="gMs-69-iHc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="205" id="0IT-Ab-WtG"/>
+                            <constraint firstItem="gMs-69-iHc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aav-vX-qoc"/>
                             <constraint firstItem="UCS-NS-eee" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="d2T-oK-KNt"/>
                             <constraint firstItem="UCS-NS-eee" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="x0U-Y7-rva"/>
                         </constraints>
@@ -36,6 +48,7 @@
                     </view>
                     <connections>
                         <outlet property="triangleAnimationView" destination="UCS-NS-eee" id="8v8-cb-hU7"/>
+                        <outlet property="userNameField" destination="gMs-69-iHc" id="hlC-H9-ZWR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
