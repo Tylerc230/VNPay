@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F337FDA20F82304005DC0BA /* PillTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F337FD920F82304005DC0BA /* PillTextField.swift */; };
+		2F337FDC20F83214005DC0BA /* TextInputControllerPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F337FDB20F83214005DC0BA /* TextInputControllerPill.swift */; };
 		2FD5D48020F5C51C00B6831D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5D47F20F5C51C00B6831D /* AppDelegate.swift */; };
 		2FD5D48220F5C51C00B6831D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5D48120F5C51C00B6831D /* LoginViewController.swift */; };
 		2FD5D48520F5C51C00B6831D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FD5D48320F5C51C00B6831D /* Main.storyboard */; };
@@ -20,6 +21,8 @@
 /* Begin PBXFileReference section */
 		080B1C0714DA371C076D491F /* Pods-VNPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VNPay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VNPay/Pods-VNPay.debug.xcconfig"; sourceTree = "<group>"; };
 		2F337FD920F82304005DC0BA /* PillTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillTextField.swift; sourceTree = "<group>"; };
+		2F337FDB20F83214005DC0BA /* TextInputControllerPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputControllerPill.swift; sourceTree = "<group>"; };
+		2F337FDE20F90927005DC0BA /* ObjcBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjcBridgingHeader.h; sourceTree = "<group>"; };
 		2FD5D47C20F5C51C00B6831D /* VNPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VNPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD5D47F20F5C51C00B6831D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FD5D48120F5C51C00B6831D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 				2FD5D48820F5C51E00B6831D /* LaunchScreen.storyboard */,
 				2FD5D48B20F5C51E00B6831D /* Info.plist */,
 				2F337FD920F82304005DC0BA /* PillTextField.swift */,
+				2F337FDB20F83214005DC0BA /* TextInputControllerPill.swift */,
+				2F337FDE20F90927005DC0BA /* ObjcBridgingHeader.h */,
 			);
 			path = VNPay;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				"${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework",
 				"${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework",
 				"${BUILT_PRODUCTS_DIR}/MotionTransitioning/MotionTransitioning.framework",
+				"${BUILT_PRODUCTS_DIR}/Stellar/Stellar.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -205,6 +211,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionAnimator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionInterchange.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionTransitioning.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stellar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,6 +228,7 @@
 			files = (
 				2FD5D48220F5C51C00B6831D /* LoginViewController.swift in Sources */,
 				2F337FDA20F82304005DC0BA /* PillTextField.swift in Sources */,
+				2F337FDC20F83214005DC0BA /* TextInputControllerPill.swift in Sources */,
 				2FD5D48020F5C51C00B6831D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +383,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.13bit.VNPay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = VNPay/ObjcBridgingHeader.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -394,6 +403,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.13bit.VNPay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = VNPay/ObjcBridgingHeader.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

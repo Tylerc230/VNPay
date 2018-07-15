@@ -17,12 +17,29 @@ class PillTextField: MDCTextField {
         return layer as! MDCShapedShadowLayer
     }
     
+    var elevation: ShadowElevation {
+        set {
+            shadowLayer.elevation = newValue
+        }
+        
+        get {
+            return shadowLayer.elevation
+        }
+    }
+    
+//    override var textInsets: UIEdgeInsets {
+//        let insets = super.textInsets
+//        return UIEdgeInsets(top: insets.top, left: 10.0, bottom: insets.bottom, right: 10.0)
+//    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
-        borderPath = UIBezierPath(roundedRect: bounds, cornerRadius: bounds.size.height/2)
+        let pillShapeGenerator = MDCPillShapeGenerator()
         borderView?.borderFillColor = .white
-        shadowLayer.shadowPath = borderPath?.cgPath
-        shadowLayer.elevation = .raisedButtonResting
-        self.underline?.lineHeight = 0.0
+        shadowLayer.shapeGenerator = pillShapeGenerator
+        if let path = pillShapeGenerator.path(for: bounds.size)?.takeRetainedValue() {
+            borderPath = UIBezierPath(cgPath: path)
+        }
+        underline?.lineHeight = 0.0
     }
 }
