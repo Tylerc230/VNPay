@@ -9,6 +9,7 @@
 import UIKit
 import Lottie
 import MaterialComponents
+import Stellar
 
 class LoginViewController: UIViewController {
     @IBOutlet var triangleAnimationView: LOTAnimationView!
@@ -23,11 +24,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         userNameTextFieldController = TextInputControllerPill(textInput: userNameField)
         passwordTextFieldController = TextInputControllerPill(textInput: passwordField)
-        
+
         loginButton.shapeGenerator = MDCPillShapeGenerator()
         loginButton.setElevation(.raisedButtonResting, for: .normal)
         loginButton.setElevation(.raisedButtonPressed, for: .highlighted)
-        
+
         triangleAnimationView.setAnimation(named: "triangle_animation.json")
     }
     
@@ -41,10 +42,11 @@ class LoginViewController: UIViewController {
     
     func runShowAnimation() {
         triangleAnimationView.play()
-        NSLayoutConstraint.activate([passwordWidth, userNameWidth])
-        UIView.animate(withDuration: 1.5) {
-            self.view.layoutIfNeeded()
+        userNameField.frame.size.width = 45.0
+        userNameField.makeWidth(passwordWidth.constant).duration(2.0).completion {
         }
+        .animate()
+        
     }
 }
 

@@ -26,37 +26,25 @@
                                     <constraint firstAttribute="width" constant="255" id="8S5-Xd-NFI"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gMs-69-iHc" customClass="PillTextField" customModule="VNPay" customModuleProvider="target">
-                                <rect key="frame" x="165" y="204" width="45" height="45"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gMs-69-iHc" customClass="PillTextField" customModule="VNPay" customModuleProvider="target">
+                                <rect key="frame" x="57.5" y="204" width="260" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="262-dD-1zJ"/>
-                                    <constraint firstAttribute="width" priority="750" constant="45" id="3N3-gx-vy0"/>
                                     <constraint firstAttribute="width" constant="260" id="3zy-rh-v4H"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="3zy-rh-v4H"/>
-                                    </mask>
-                                </variation>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="94k-tv-Aip" customClass="PillTextField" customModule="VNPay" customModuleProvider="target">
-                                <rect key="frame" x="164.5" y="266" width="45" height="45"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="94k-tv-Aip" customClass="PillTextField" customModule="VNPay" customModuleProvider="target">
+                                <rect key="frame" x="57" y="266" width="260" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="Xq9-se-4zd"/>
-                                    <constraint firstAttribute="width" priority="750" constant="45" id="cp5-qL-pmN"/>
                                     <constraint firstAttribute="height" constant="45" id="gm5-6r-uSN"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Xq9-se-4zd"/>
-                                    </mask>
-                                </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEv-7R-nQ8" customClass="MDCButton">
                                 <rect key="frame" x="57" y="368" width="260" height="45"/>
