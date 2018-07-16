@@ -436,10 +436,12 @@ PODS:
     - MotionInterchange (~> 1.6)
   - MotionInterchange (1.6.0)
   - MotionTransitioning (5.0.0)
+  - Stellar (0.67)
 
 DEPENDENCIES:
   - lottie-ios
   - MaterialComponents
+  - Stellar (from `https://github.com/gaurav1981/Stellar`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -451,6 +453,15 @@ SPEC REPOS:
     - MotionInterchange
     - MotionTransitioning
 
+EXTERNAL SOURCES:
+  Stellar:
+    :git: https://github.com/gaurav1981/Stellar
+
+CHECKOUT OPTIONS:
+  Stellar:
+    :commit: d5984e72c8de2839bc6ed13547e0ef6a9629d4b6
+    :git: https://github.com/gaurav1981/Stellar
+
 SPEC CHECKSUMS:
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   MaterialComponents: e4edce947dba33f9c4dd14c34024602999afcbed
@@ -459,7 +470,8 @@ SPEC CHECKSUMS:
   MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
   MotionTransitioning: 23d25edc2f4606efb922403cbac6d81af37aa33a
+  Stellar: df980becd194eeb62d623af097582da0ef2219b9
 
-PODFILE CHECKSUM: a69da176d5b8e2b6372d421041e560b5ecbdad2e
+PODFILE CHECKSUM: 69f4672a50a59ba67c6ae7848f01224af37f491d
 
 COCOAPODS: 1.5.3
