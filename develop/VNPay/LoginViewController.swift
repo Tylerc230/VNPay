@@ -32,21 +32,42 @@ class LoginViewController: UIViewController {
         triangleAnimationView.setAnimation(named: "triangle_animation.json")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
     override func viewDidAppear(_ animated: Bool) {
-         super.viewDidAppear(animated)
+        super.viewDidAppear(animated)
+        runShowAnimation()
+    }
+    
+    @IBAction func loginTapped() {
         runShowAnimation()
     }
     
     func runShowAnimation() {
+        userNameField.prepareAnimateIn()
+        passwordField.prepareAnimateIn()
         triangleAnimationView.play()
-        userNameField.frame.size.width = 45.0
-        userNameField.makeWidth(passwordWidth.constant).duration(2.0).completion {
+        triangleAnimationView.animationSpeed = 1.1
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+            self.userNameField.animateIn(to: self.userNameWidth.constant)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.passwordField.animateIn(to: self.passwordWidth.constant)
+            }
+            
         }
-        .animate()
-        
+    }
+}
+
+extension PillTextField {
+    func prepareAnimateIn() {
+        frame.size.width = 45.0
+        alpha = 0.0
+    }
+    func animateIn(to width: CGFloat) {
+        let easing = TimingFunctionType.custom(0.33, 0.78, 0.34, 1.0)
+        makeAlpha(1.0)
+            .makeWidth(width)
+            .duration(0.6)
+            .easing(easing)
+            .animate()
     }
 }
 

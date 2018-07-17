@@ -57,6 +57,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.16862745100000001" green="0.2901960784" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="yNb-54-eBm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
