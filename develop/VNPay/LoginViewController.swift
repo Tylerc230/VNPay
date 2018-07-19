@@ -17,9 +17,9 @@ class LoginViewController: UIViewController {
     @IBOutlet var userNameWidth: NSLayoutConstraint!
     @IBOutlet var passwordField: PillTextField!
     @IBOutlet var passwordWidth: NSLayoutConstraint!
+    @IBOutlet var loginButton: MDCButton!
     var userNameTextFieldController: TextInputControllerPill!
     var passwordTextFieldController: TextInputControllerPill!
-    @IBOutlet var  loginButton: MDCButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         userNameTextFieldController = TextInputControllerPill(textInput: userNameField)
@@ -42,21 +42,41 @@ class LoginViewController: UIViewController {
     }
     
     func runShowAnimation() {
+        let moveY = loginButton.frame.size.height/2
         userNameField.prepareAnimateIn()
         passwordField.prepareAnimateIn()
+        loginButton.prepareAnimationIn(moveAmount: moveY)
         triangleAnimationView.play()
         triangleAnimationView.animationSpeed = 1.1
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
             self.userNameField.animateIn(to: self.userNameWidth.constant)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 self.passwordField.animateIn(to: self.passwordWidth.constant)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    self.loginButton.animateIn(moveAmount: moveY)
+                }
             }
             
         }
     }
 }
 
+extension MDCButton {
+    func prepareAnimationIn(moveAmount: CGFloat) {
+        alpha = 0.0
+        frame.origin.y += moveAmount
+    }
+    
+    func animateIn(moveAmount: CGFloat) {
+        makeAlpha(1.0)
+            .moveY(-moveAmount)
+            .duration(0.3)
+            .animate()
+    }
+}
+
 extension PillTextField {
+    //maybe try sica instead
     func prepareAnimateIn() {
         frame.size.width = 45.0
         alpha = 0.0
