@@ -19,13 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCS-NS-eee" customClass="LOTAnimationView">
-                                <rect key="frame" x="0.0" y="75.5" width="255" height="516"/>
+                                <rect key="frame" x="0.0" y="93.5" width="255" height="516"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="516" id="2r9-4B-Itf"/>
                                     <constraint firstAttribute="width" constant="255" id="8S5-Xd-NFI"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="rJ3-Io-Hdp">
+                                <rect key="frame" x="119" y="87" width="136" height="40"/>
+                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gMs-69-iHc" customClass="PillTextField" customModule="VNPay" customModuleProvider="target">
                                 <rect key="frame" x="57.5" y="204" width="260" height="45"/>
                                 <constraints>
@@ -53,7 +56,7 @@
                                     <constraint firstAttribute="width" constant="260" id="VJg-46-D2i"/>
                                     <constraint firstAttribute="height" constant="45" id="a8E-vp-Atd"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="14"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.16862745100000001" green="0.2901960784" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -68,8 +71,10 @@
                             <constraint firstItem="94k-tv-Aip" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="27L-6t-HFf"/>
                             <constraint firstItem="pEv-7R-nQ8" firstAttribute="top" secondItem="94k-tv-Aip" secondAttribute="bottom" constant="57" id="8Cv-UP-tm7"/>
                             <constraint firstItem="94k-tv-Aip" firstAttribute="top" secondItem="gMs-69-iHc" secondAttribute="bottom" constant="17" id="Jtj-nW-QjD"/>
+                            <constraint firstItem="rJ3-Io-Hdp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lf9-n9-XmI"/>
                             <constraint firstItem="gMs-69-iHc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aav-vX-qoc"/>
-                            <constraint firstItem="UCS-NS-eee" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="d2T-oK-KNt"/>
+                            <constraint firstItem="UCS-NS-eee" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="18" id="d2T-oK-KNt"/>
+                            <constraint firstItem="rJ3-Io-Hdp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="67" id="dlk-LX-L3g"/>
                             <constraint firstItem="pEv-7R-nQ8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gxV-kl-Vdb"/>
                             <constraint firstItem="UCS-NS-eee" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="x0U-Y7-rva"/>
                         </constraints>
@@ -89,4 +94,7 @@
             <point key="canvasLocation" x="36" y="33.733133433283363"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo.png" width="136" height="40"/>
+    </resources>
 </document>

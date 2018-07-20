@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2F337FDA20F82304005DC0BA /* PillTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F337FD920F82304005DC0BA /* PillTextField.swift */; };
 		2F337FDC20F83214005DC0BA /* TextInputControllerPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F337FDB20F83214005DC0BA /* TextInputControllerPill.swift */; };
+		2FB4B02221005235001B9F97 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB4B02121005234001B9F97 /* logo@2x.png */; };
+		2FB4B02D21016E31001B9F97 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FB4B02B21016E30001B9F97 /* fa-solid-900.ttf */; };
+		2FB4B02E21016E31001B9F97 /* fa-regular-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FB4B02C21016E30001B9F97 /* fa-regular-400.ttf */; };
 		2FD5D48020F5C51C00B6831D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5D47F20F5C51C00B6831D /* AppDelegate.swift */; };
 		2FD5D48220F5C51C00B6831D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5D48120F5C51C00B6831D /* LoginViewController.swift */; };
 		2FD5D48520F5C51C00B6831D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FD5D48320F5C51C00B6831D /* Main.storyboard */; };
@@ -23,6 +26,9 @@
 		2F337FD920F82304005DC0BA /* PillTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillTextField.swift; sourceTree = "<group>"; };
 		2F337FDB20F83214005DC0BA /* TextInputControllerPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputControllerPill.swift; sourceTree = "<group>"; };
 		2F337FDE20F90927005DC0BA /* ObjcBridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjcBridgingHeader.h; sourceTree = "<group>"; };
+		2FB4B02121005234001B9F97 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		2FB4B02B21016E30001B9F97 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
+		2FB4B02C21016E30001B9F97 /* fa-regular-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.ttf"; sourceTree = "<group>"; };
 		2FD5D47C20F5C51C00B6831D /* VNPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VNPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD5D47F20F5C51C00B6831D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FD5D48120F5C51C00B6831D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +56,9 @@
 		2FD5D47320F5C51C00B6831D = {
 			isa = PBXGroup;
 			children = (
+				2FB4B02121005234001B9F97 /* logo@2x.png */,
+				2FB4B02C21016E30001B9F97 /* fa-regular-400.ttf */,
+				2FB4B02B21016E30001B9F97 /* fa-solid-900.ttf */,
 				2FD5D47E20F5C51C00B6831D /* VNPay */,
 				2FD5D47D20F5C51C00B6831D /* Products */,
 				8B140C26294486E013DC14FE /* Pods */,
@@ -159,8 +168,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FB4B02221005235001B9F97 /* logo@2x.png in Resources */,
 				2FD5D49220F5D34F00B6831D /* triangle_animation.json in Resources */,
 				2FD5D48A20F5C51E00B6831D /* LaunchScreen.storyboard in Resources */,
+				2FB4B02E21016E31001B9F97 /* fa-regular-400.ttf in Resources */,
+				2FB4B02D21016E31001B9F97 /* fa-solid-900.ttf in Resources */,
 				2FD5D48720F5C51E00B6831D /* Assets.xcassets in Resources */,
 				2FD5D48520F5C51C00B6831D /* Main.storyboard in Resources */,
 			);
