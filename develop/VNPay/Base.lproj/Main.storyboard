@@ -126,6 +126,7 @@
                     <connections>
                         <outlet property="bottomButtons" destination="0jB-2s-67a" id="5v9-pQ-qBk"/>
                         <outlet property="loginButton" destination="pEv-7R-nQ8" id="cAX-kF-UoE"/>
+                        <outlet property="logo" destination="rJ3-Io-Hdp" id="Lnx-AU-e9O"/>
                         <outlet property="passwordField" destination="94k-tv-Aip" id="Fk3-6H-Pmw"/>
                         <outlet property="passwordWidth" destination="Xq9-se-4zd" id="zsq-GR-NKQ"/>
                         <outlet property="triangleAnimationView" destination="UCS-NS-eee" id="8v8-cb-hU7"/>

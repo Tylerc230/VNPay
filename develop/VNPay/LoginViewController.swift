@@ -13,6 +13,7 @@ import Stellar
 
 class LoginViewController: UIViewController {
     @IBOutlet var triangleAnimationView: LOTAnimationView!
+    @IBOutlet var logo: UIImageView!
     @IBOutlet var userNameField: PillTextField!
     @IBOutlet var userNameWidth: NSLayoutConstraint!
     @IBOutlet var passwordField: PillTextField!
@@ -48,6 +49,9 @@ class LoginViewController: UIViewController {
         passwordField.prepareAnimateIn()
         loginButton.prepareAnimationIn(moveAmount: moveY)
         prepareButtonButtonAnimation()
+        prepareLogoAnimation()
+        
+        animateLogo()
         triangleAnimationView.play()
         triangleAnimationView.animationSpeed = 1.1
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
@@ -67,6 +71,17 @@ class LoginViewController: UIViewController {
         let buttons = bottomButtons.arrangedSubviews
         buttons.forEach{ $0.prepareAnimationIn(moveAmount: 10.0) }
     }
+    
+    func prepareLogoAnimation() {
+        logo.transform = CGAffineTransform(scaleX: 0.9, y: 0.9).translatedBy(x: 0.0, y: -20)
+    }
+    
+    func animateLogo() {
+        UIView.animate(withDuration: 0.4) {
+            self.logo.transform = .identity
+        }
+    }
+    
     func animateButtomButtons() {
         let buttons = bottomButtons.arrangedSubviews
         let totalAnimationTime = 0.4
