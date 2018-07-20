@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var passwordField: PillTextField!
     @IBOutlet var passwordWidth: NSLayoutConstraint!
     @IBOutlet var loginButton: MDCButton!
+    @IBOutlet var bottomButtons: UIStackView!
     var userNameTextFieldController: TextInputControllerPill!
     var passwordTextFieldController: TextInputControllerPill!
     override func viewDidLoad() {
@@ -46,31 +47,52 @@ class LoginViewController: UIViewController {
         userNameField.prepareAnimateIn()
         passwordField.prepareAnimateIn()
         loginButton.prepareAnimationIn(moveAmount: moveY)
+        prepareButtonButtonAnimation()
         triangleAnimationView.play()
         triangleAnimationView.animationSpeed = 1.1
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
             self.userNameField.animateIn(to: self.userNameWidth.constant)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 self.passwordField.animateIn(to: self.passwordWidth.constant)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    self.loginButton.animateIn(moveAmount: moveY)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    self.loginButton.animateIn(moveAmount: moveY, duration: 0.4)
+                    self.animateButtomButtons()
                 }
             }
             
         }
     }
+    
+    func prepareButtonButtonAnimation() {
+        let buttons = bottomButtons.arrangedSubviews
+        buttons.forEach{ $0.prepareAnimationIn(moveAmount: 10.0) }
+    }
+    func animateButtomButtons() {
+        let buttons = bottomButtons.arrangedSubviews
+        let totalAnimationTime = 0.4
+        let buttonAnimationTime = 0.2
+        let buttonDelay = (totalAnimationTime - buttonAnimationTime)/Double(buttons.count)
+        buttons.enumerated().forEach { args in
+            let (offset, button) = args
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(offset) * buttonDelay) {
+                button.animateIn(moveAmount: 10.0, duration: buttonAnimationTime)
+            }
+        }
+    }
 }
 
-extension MDCButton {
+extension UIView {
     func prepareAnimationIn(moveAmount: CGFloat) {
         alpha = 0.0
         frame.origin.y += moveAmount
     }
     
-    func animateIn(moveAmount: CGFloat) {
+    func animateIn(moveAmount: CGFloat, duration: TimeInterval) {
+        let easing = TimingFunctionType.custom(0.33, 0.78, 0.34, 1.0)
         makeAlpha(1.0)
             .moveY(-moveAmount)
-            .duration(0.3)
+            .easing(easing)
+            .duration(duration)
             .animate()
     }
 }
