@@ -9,6 +9,19 @@
 import Foundation
 import MaterialComponents
 class TextInputControllerPill: MDCTextInputControllerBase {
+    override init() {
+        super.init()
+    }
+    
+    required init(textInput input: (UIView & MDCTextInput)?) {
+        super.init(textInput: input)
+        self.isFloatingEnabled = false
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.isFloatingEnabled = false
+    }
     //Had to move MDCTextInputControllerBase+Subclassing.h to public in podfile pod install willl probably break this
     override func updateLayout() {
         super.updateLayout()
