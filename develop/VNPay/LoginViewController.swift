@@ -26,6 +26,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         userNameTextFieldController = TextInputControllerPill(textInput: userNameField)
         passwordTextFieldController = TextInputControllerPill(textInput: passwordField)
+        userNameField.set(leftIcon: "", isRegular: true)
+        passwordField.set(leftIcon: "", isRegular: false)
 
         loginButton.shapeGenerator = MDCPillShapeGenerator()
         loginButton.setElevation(.raisedButtonResting, for: .normal)
