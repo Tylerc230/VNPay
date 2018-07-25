@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,21 +40,23 @@
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gMs-69-iHc" customClass="PillTextField" customModule="VNPay" customModuleProvider="target">
                                 <rect key="frame" x="30" y="204" width="260" height="45"/>
+                                <color key="tintColor" name="DarkBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="262-dD-1zJ"/>
                                     <constraint firstAttribute="width" constant="260" id="3zy-rh-v4H"/>
                                 </constraints>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="DarkBlue"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="94k-tv-Aip" customClass="PillTextField" customModule="VNPay" customModuleProvider="target">
                                 <rect key="frame" x="30" y="266" width="260" height="45"/>
+                                <color key="tintColor" name="DarkBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="Xq9-se-4zd"/>
                                     <constraint firstAttribute="height" constant="45" id="gm5-6r-uSN"/>
                                 </constraints>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="DarkBlue"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
@@ -141,5 +144,9 @@
     </scenes>
     <resources>
         <image name="logo.png" width="136" height="40"/>
+        <namedColor name="DarkBlue">
+            <color red="0.023529411764705882" green="0.12941176470588237" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
+    <color key="tintColor" red="0.66813218593597412" green="0.70768094062805176" blue="0.84949219226837158" alpha="1" colorSpace="calibratedRGB"/>
 </document>

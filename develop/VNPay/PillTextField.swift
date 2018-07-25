@@ -35,6 +35,7 @@ class PillTextField: MDCTextField {
         let label = UILabel(frame: CGRect(x: 10, y: 0, width: 20, height: 20))
         let fontName = isRegular ? "FontAwesome5FreeRegular" : "FontAwesome5FreeSolid"
         label.font = UIFont(name: fontName, size: 14.0)
+        label.textColor = UIColor(named: "LightBlue")
         label.text = leftIcon
         label.textAlignment = .right
         leadingView = label

@@ -18,6 +18,7 @@
 		2FD5D48720F5C51E00B6831D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FD5D48620F5C51E00B6831D /* Assets.xcassets */; };
 		2FD5D48A20F5C51E00B6831D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FD5D48820F5C51E00B6831D /* LaunchScreen.storyboard */; };
 		2FD5D49220F5D34F00B6831D /* triangle_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FD5D49120F5D34E00B6831D /* triangle_animation.json */; };
+		2FDA3BF92106B71F00210E9D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FDA3BF82106B71F00210E9D /* Colors.xcassets */; };
 		F415E250CC67654048E48910 /* Pods_VNPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE97AD7F9C3FC81EC0FB879 /* Pods_VNPay.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		2FD5D48920F5C51E00B6831D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FD5D48B20F5C51E00B6831D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FD5D49120F5D34E00B6831D /* triangle_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = triangle_animation.json; sourceTree = SOURCE_ROOT; };
+		2FDA3BF82106B71F00210E9D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		ABE97AD7F9C3FC81EC0FB879 /* Pods_VNPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VNPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA3825542228E1B1C18AD761 /* Pods-VNPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VNPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-VNPay/Pods-VNPay.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,6 +58,7 @@
 		2FD5D47320F5C51C00B6831D = {
 			isa = PBXGroup;
 			children = (
+				2FDA3BF82106B71F00210E9D /* Colors.xcassets */,
 				2FB4B02121005234001B9F97 /* logo@2x.png */,
 				2FB4B02C21016E30001B9F97 /* fa-regular-400.ttf */,
 				2FB4B02B21016E30001B9F97 /* fa-solid-900.ttf */,
@@ -170,6 +173,7 @@
 			files = (
 				2FB4B02221005235001B9F97 /* logo@2x.png in Resources */,
 				2FD5D49220F5D34F00B6831D /* triangle_animation.json in Resources */,
+				2FDA3BF92106B71F00210E9D /* Colors.xcassets in Resources */,
 				2FD5D48A20F5C51E00B6831D /* LaunchScreen.storyboard in Resources */,
 				2FB4B02E21016E31001B9F97 /* fa-regular-400.ttf in Resources */,
 				2FB4B02D21016E31001B9F97 /* fa-solid-900.ttf in Resources */,
