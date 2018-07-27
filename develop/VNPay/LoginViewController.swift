@@ -115,7 +115,6 @@ extension UIView {
 }
 
 extension PillTextField {
-    //maybe try sica instead
     func prepareAnimateIn() {
         frame.size.width = 45.0
         alpha = 0.0

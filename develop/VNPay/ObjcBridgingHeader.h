@@ -8,6 +8,6 @@
 
 #ifndef ObjcBridgingHeader_h
 #define ObjcBridgingHeader_h
-#import "MaterialComponents/MDCTextInputControllerBase+Subclassing.h"
+#import "MDCTextInputControllerBase+Subclassing.h"
 
 #endif /* ObjcBridgingHeader_h */
