@@ -23,7 +23,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="VNPay" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="LoginView" customModule="VNPay" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -125,17 +125,17 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0jB-2s-67a" secondAttribute="bottom" constant="41" id="zWi-Pg-1rn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outlet property="bottomButtons" destination="0jB-2s-67a" id="KDF-oz-MOz"/>
+                            <outlet property="loginButton" destination="pEv-7R-nQ8" id="TbA-kt-f1G"/>
+                            <outlet property="logo" destination="rJ3-Io-Hdp" id="Wo1-2a-j0g"/>
+                            <outlet property="passwordField" destination="94k-tv-Aip" id="W6N-dj-sgL"/>
+                            <outlet property="passwordWidth" destination="Xq9-se-4zd" id="syq-jQ-wk5"/>
+                            <outlet property="triangleAnimationView" destination="UCS-NS-eee" id="vxJ-PT-CDt"/>
+                            <outlet property="userNameField" destination="gMs-69-iHc" id="N0J-9v-3B6"/>
+                            <outlet property="userNameWidth" destination="3zy-rh-v4H" id="vhA-gY-7qj"/>
+                        </connections>
                     </view>
-                    <connections>
-                        <outlet property="bottomButtons" destination="0jB-2s-67a" id="5v9-pQ-qBk"/>
-                        <outlet property="loginButton" destination="pEv-7R-nQ8" id="cAX-kF-UoE"/>
-                        <outlet property="logo" destination="rJ3-Io-Hdp" id="Lnx-AU-e9O"/>
-                        <outlet property="passwordField" destination="94k-tv-Aip" id="Fk3-6H-Pmw"/>
-                        <outlet property="passwordWidth" destination="Xq9-se-4zd" id="zsq-GR-NKQ"/>
-                        <outlet property="triangleAnimationView" destination="UCS-NS-eee" id="8v8-cb-hU7"/>
-                        <outlet property="userNameField" destination="gMs-69-iHc" id="hlC-H9-ZWR"/>
-                        <outlet property="userNameWidth" destination="3zy-rh-v4H" id="mPG-NO-TUx"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

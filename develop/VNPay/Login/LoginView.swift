@@ -1,17 +1,16 @@
 //
-//  ViewController.swift
+//  LoginView.swift
 //  VNPay
 //
-//  Created by Tyler Casselman on 7/10/18.
+//  Created by Tyler Casselman on 7/26/18.
 //  Copyright © 2018 13bit. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import Lottie
 import MaterialComponents
 import Stellar
-
-class LoginViewController: UIViewController {
+class LoginView: UIView {
     @IBOutlet var triangleAnimationView: LOTAnimationView!
     @IBOutlet var logo: UIImageView!
     @IBOutlet var userNameField: PillTextField!
@@ -22,27 +21,19 @@ class LoginViewController: UIViewController {
     @IBOutlet var bottomButtons: UIStackView!
     var userNameTextFieldController: TextInputControllerPill!
     var passwordTextFieldController: TextInputControllerPill!
-    override func viewDidLoad() {
-        super.viewDidLoad()
+
+    override func awakeFromNib() {
+         super.awakeFromNib()
         userNameTextFieldController = TextInputControllerPill(textInput: userNameField)
         passwordTextFieldController = TextInputControllerPill(textInput: passwordField)
         userNameField.set(leftIcon: "", isRegular: true)
         passwordField.set(leftIcon: "", isRegular: false)
-
+        
         loginButton.shapeGenerator = MDCPillShapeGenerator()
         loginButton.setElevation(.raisedButtonResting, for: .normal)
         loginButton.setElevation(.raisedButtonPressed, for: .highlighted)
-
+        
         triangleAnimationView.setAnimation(named: "triangle_animation.json")
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        runShowAnimation()
-    }
-    
-    @IBAction func loginTapped() {
-        runShowAnimation()
     }
     
     func runShowAnimation() {
@@ -69,22 +60,25 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func prepareButtonButtonAnimation() {
+    func runDismissAnimation() {
+    }
+    
+    private func prepareButtonButtonAnimation() {
         let buttons = bottomButtons.arrangedSubviews
         buttons.forEach{ $0.prepareAnimationIn(moveAmount: 10.0) }
     }
     
-    func prepareLogoAnimation() {
+    private func prepareLogoAnimation() {
         logo.transform = CGAffineTransform(scaleX: 0.9, y: 0.9).translatedBy(x: 0.0, y: -20)
     }
     
-    func animateLogo() {
+    private func animateLogo() {
         UIView.animate(withDuration: 0.4) {
             self.logo.transform = .identity
         }
     }
     
-    func animateButtomButtons() {
+    private func animateButtomButtons() {
         let buttons = bottomButtons.arrangedSubviews
         let totalAnimationTime = 0.4
         let buttonAnimationTime = 0.2
@@ -98,7 +92,7 @@ class LoginViewController: UIViewController {
     }
 }
 
-extension UIView {
+fileprivate extension UIView {
     func prepareAnimationIn(moveAmount: CGFloat) {
         alpha = 0.0
         frame.origin.y += moveAmount
@@ -114,7 +108,7 @@ extension UIView {
     }
 }
 
-extension PillTextField {
+fileprivate extension PillTextField {
     func prepareAnimateIn() {
         frame.size.width = 45.0
         alpha = 0.0
@@ -128,4 +122,3 @@ extension PillTextField {
             .animate()
     }
 }
-
