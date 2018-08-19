@@ -9,10 +9,12 @@
 import Foundation
 import MaterialComponents
 class PillTextField: MDCTextField {
+    let pillShapeGenerator = MDCPillShapeGenerator()
+    private let hideContentView = MDCTextInputBorderView(frame: .zero)
     override class var layerClass: AnyClass {
         return MDCShapedShadowLayer.self
     }
-
+    
     var shadowLayer: MDCShapedShadowLayer {
         return layer as! MDCShapedShadowLayer
     }
@@ -26,6 +28,19 @@ class PillTextField: MDCTextField {
             return shadowLayer.elevation
         }
     }
+    
+    var showContents: Bool = true {
+        didSet {
+            if showContents {
+                hideContentView.removeFromSuperview()
+            } else {
+                hideContentView.layer.zPosition = 1.0
+                hideContentView.frame = bounds
+                addSubview(hideContentView)
+            }
+        }
+    }
+    
     func set(leftIcon: String?, isRegular: Bool) {
         guard let leftIcon = leftIcon else {
             leadingView = nil
@@ -44,12 +59,11 @@ class PillTextField: MDCTextField {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        let pillShapeGenerator = MDCPillShapeGenerator()
-        borderView?.borderFillColor = .white
         shadowLayer.shapeGenerator = pillShapeGenerator
-        if let path = pillShapeGenerator.path(for: bounds.size)?.takeRetainedValue() {
-            borderPath = UIBezierPath(cgPath: path)
+        if let borderView = borderView {
+            setup(borderView: borderView)
         }
+        setup(borderView: hideContentView)
     }
     
     override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
@@ -57,4 +71,12 @@ class PillTextField: MDCTextField {
         rect.size.width = 40
         return rect
     }
+    
+    func setup(borderView: MDCTextInputBorderView) {
+        borderView.borderFillColor = .white
+        if let path = pillShapeGenerator.path(for: bounds.size)?.takeRetainedValue() {
+            borderView.borderPath = UIBezierPath(cgPath: path)
+        }
+    }
 }
+
