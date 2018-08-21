@@ -25,8 +25,8 @@ class LoginViewController: UIViewController {
         loginView.runShowAnimation()
     }
     
-    func runDismissAnimation() {
-        loginView.runDismissAnimation()
+    func runDismissAnimation(complete: @escaping () -> ()) {
+        loginView.runDismissAnimation(complete: complete)
     }
     
 }

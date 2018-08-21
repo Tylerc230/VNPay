@@ -63,7 +63,7 @@ class LoginView: UIView {
         }
     }
     
-    func runDismissAnimation() {
+    func runDismissAnimation(complete: @escaping () -> ()) {
 //        these 2 calls make the login button jump
         userNameField.showContents = false
         passwordField.showContents = false
@@ -88,6 +88,7 @@ class LoginView: UIView {
             self.loginButton
                 .makeAlpha(0.0)
                 .duration(0.06)
+                .completion(complete)
                 .animate()
         }
     }
