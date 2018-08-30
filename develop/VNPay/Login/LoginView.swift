@@ -43,7 +43,7 @@ class LoginView: UIView {
                 self.passwordField.prepareAnimateIn()
                 self.loginButton.prepareAnimationIn(moveAmount: moveY)
                 self.prepareButtonButtonAnimation()
-                self.prepareLogoAnimation()
+                self.logo.transform = logoHideTransform
             }
             .addAnimationPhase(startFraction: 0.0, durationFraction: 0.5) { duration in
                 self.animateLogo(duration: duration)
@@ -59,40 +59,53 @@ class LoginView: UIView {
             .addAnimationPhase(startFraction: 0.5, durationFraction: 0.5){ duration in
                 self.loginButton.animateIn(moveAmount: moveY, duration: duration)
             }
-            .addStaggeredAnimation(views: bottomButtons.arrangedSubviews, startFraction: 0.5, durationFraction: 0.4, delayFraction: 0.2) { (view, duration) in
+            .addStaggeredAnimation(views: bottomButtons.arrangedSubviews, startFraction: 0.5, durationFraction: 0.5, delayFraction: 0.2) { (view, duration) in
                 view.animateIn(moveAmount: 10.0, duration: duration)
             }
             .animate(totalDuration: 0.85)
     }
     
     func runDismissAnimation(complete: @escaping () -> ()) {
-//        these 2 calls make the login button jump
-        userNameField.showContents = false
-        passwordField.showContents = false
-        let fieldDuration = 0.21
-        userNameField
-            .animate(to: 45.0, duration: fieldDuration)
-            .then()
-            .makeAlpha(0.0)
-            .animate()
-        passwordField
-            .animate(to: 45.0, duration: fieldDuration)
-            .then()
-            .makeAlpha(0.0)
-            .animate()
-        hideBottomButtons()
-        UIView.animate(withDuration: 0.4) {
-            self.logo.transform = logoHideTransform
+        Choreo()
+            .prepareAnimations {
+                self.userNameField.showContents = false
+                self.passwordField.showContents = false
+                
+            }
+            .addAnimationPhase(startFraction: 0.0, durationFraction: 0.5) { duration in
+                self.userNameField
+                    .animate(to: 45.0, duration: duration)
+                    .then()
+                    .makeAlpha(0.0)
+                    .animate()
+                self.passwordField
+                    .animate(to: 45.0, duration: duration)
+                    .then()
+                    .makeAlpha(0.0)
+                    .animate()
+            }
+            .addAnimationPhase(startFraction: 0.0, durationFraction: 0.375) { duration in
+                self.bottomButtons
+                    .makeAlpha(0.0)
+                    .duration(duration)
+                    .moveY(self.bottomButtons.frame.height)
+                    .animate()
+            }
+            .addAnimationPhase(startFraction: 0.35, durationFraction: 0.15) { duration in
+                self.triangleAnimationView.animationSpeed = -3.3;
+                self.triangleAnimationView.play()
+                self.loginButton
+                    .makeAlpha(0.0)
+                    .duration(duration)
+                    .completion(complete)
+                    .animate()
+            }
+            .addAnimationPhase(startFraction: 0.0, durationFraction: 1.0) { duration in
+                UIView.animate(withDuration: duration) {
+                    self.logo.transform = logoHideTransform
+                }
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + fieldDuration - 0.06) {
-            self.triangleAnimationView.animationSpeed = -3.3;
-            self.triangleAnimationView.play()
-            self.loginButton
-                .makeAlpha(0.0)
-                .duration(0.06)
-                .completion(complete)
-                .animate()
-        }
+        .animate(totalDuration: 0.4)
     }
     
     private func prepareButtonButtonAnimation() {
@@ -100,22 +113,10 @@ class LoginView: UIView {
         buttons.forEach{ $0.prepareAnimationIn(moveAmount: 10.0) }
     }
     
-    private func prepareLogoAnimation() {
-        logo.transform = logoHideTransform
-    }
-    
     private func animateLogo(duration: TimeInterval) {
         UIView.animate(withDuration: duration) {
             self.logo.transform = .identity
         }
-    }
-    
-    private func hideBottomButtons() {
-        bottomButtons
-            .makeAlpha(0.0)
-            .duration(0.15)
-            .moveY(bottomButtons.frame.height)
-            .animate()
     }
 }
 
