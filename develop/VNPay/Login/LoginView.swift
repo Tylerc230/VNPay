@@ -70,7 +70,6 @@ class LoginView: UIView {
             .prepareAnimations {
                 self.userNameField.showContents = false
                 self.passwordField.showContents = false
-                
             }
             .addAnimationPhase(startFraction: 0.0, durationFraction: 0.5) { duration in
                 self.userNameField

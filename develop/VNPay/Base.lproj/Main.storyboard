@@ -166,31 +166,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="kkt-99-CTw">
-                                <rect key="frame" x="20" y="148" width="280" height="400"/>
+                                <rect key="frame" x="20" y="242" width="280" height="306"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6Pe-wY-yGN">
-                                        <rect key="frame" x="0.0" y="0.0" width="93.5" height="400"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="6Pe-wY-yGN">
+                                        <rect key="frame" x="0.0" y="0.0" width="93.5" height="306"/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UJG-QK-tiq">
-                                        <rect key="frame" x="93.5" y="0.0" width="93" height="400"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UJG-QK-tiq">
+                                        <rect key="frame" x="93.5" y="0.0" width="93" height="306"/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QUE-gm-1NK">
-                                        <rect key="frame" x="186.5" y="0.0" width="93.5" height="400"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="QUE-gm-1NK">
+                                        <rect key="frame" x="186.5" y="0.0" width="93.5" height="306"/>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="Ymr-yq-Fo2"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kkt-99-CTw" firstAttribute="leading" secondItem="SkQ-pX-fqt" secondAttribute="leading" constant="20" id="MEX-96-m5h"/>
                             <constraint firstAttribute="trailing" secondItem="kkt-99-CTw" secondAttribute="trailing" constant="20" id="QbJ-Vm-sFt"/>
+                            <constraint firstItem="kkt-99-CTw" firstAttribute="top" secondItem="SkQ-pX-fqt" secondAttribute="top" constant="222" id="avu-mR-dED"/>
                             <constraint firstItem="SkQ-pX-fqt" firstAttribute="bottom" secondItem="kkt-99-CTw" secondAttribute="bottom" constant="20" id="cSy-uJ-BhT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SkQ-pX-fqt"/>
                     </view>
+                    <connections>
+                        <outlet property="columns" destination="kkt-99-CTw" id="dJB-wk-pOp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yhZ-M5-HBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
