@@ -75,7 +75,7 @@
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEv-7R-nQ8" customClass="MDCButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEv-7R-nQ8" customClass="PillButton" customModule="VNPay" customModuleProvider="target">
                                 <rect key="frame" x="30" y="368" width="260" height="45"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -157,14 +157,38 @@
             </objects>
             <point key="canvasLocation" x="36" y="33.733133433283363"/>
         </scene>
-        <!--View Controller-->
+        <!--Dashboard View Controller-->
         <scene sceneID="uXS-ph-qhJ">
             <objects>
-                <viewController storyboardIdentifier="Dashboard" id="6Qx-eB-03f" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Dashboard" id="6Qx-eB-03f" customClass="DashboardViewController" customModule="VNPay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YgR-e2-z7v">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="kkt-99-CTw">
+                                <rect key="frame" x="20" y="148" width="280" height="400"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6Pe-wY-yGN">
+                                        <rect key="frame" x="0.0" y="0.0" width="93.5" height="400"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UJG-QK-tiq">
+                                        <rect key="frame" x="93.5" y="0.0" width="93" height="400"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QUE-gm-1NK">
+                                        <rect key="frame" x="186.5" y="0.0" width="93.5" height="400"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="Ymr-yq-Fo2"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kkt-99-CTw" firstAttribute="leading" secondItem="SkQ-pX-fqt" secondAttribute="leading" constant="20" id="MEX-96-m5h"/>
+                            <constraint firstAttribute="trailing" secondItem="kkt-99-CTw" secondAttribute="trailing" constant="20" id="QbJ-Vm-sFt"/>
+                            <constraint firstItem="SkQ-pX-fqt" firstAttribute="bottom" secondItem="kkt-99-CTw" secondAttribute="bottom" constant="20" id="cSy-uJ-BhT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SkQ-pX-fqt"/>
                     </view>
                 </viewController>

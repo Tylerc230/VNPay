@@ -13,8 +13,15 @@ protocol LoginDelegate: class {
 
 class LoginViewController: UIViewController {
     weak var loginDelegate: LoginDelegate?
+    var onViewDidAppear: (() -> ())?
     var loginView: LoginView {
         return view as! LoginView
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        onViewDidAppear?()
+        onViewDidAppear = nil
     }
 
     @IBAction func loginTapped() {

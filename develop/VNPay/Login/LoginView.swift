@@ -20,11 +20,10 @@ class LoginView: UIView {
     @IBOutlet var userNameWidth: NSLayoutConstraint!
     @IBOutlet var passwordField: PillTextField!
     @IBOutlet var passwordWidth: NSLayoutConstraint!
-    @IBOutlet var loginButton: MDCButton!
+    @IBOutlet var loginButton: PillButton!
     @IBOutlet var bottomButtons: UIStackView!
     var userNameTextFieldController: TextInputControllerPill!
     var passwordTextFieldController: TextInputControllerPill!
-
     override func awakeFromNib() {
          super.awakeFromNib()
         userNameTextFieldController = TextInputControllerPill(textInput: userNameField)
@@ -32,35 +31,38 @@ class LoginView: UIView {
         userNameField.set(leftIcon: "", isRegular: true)
         passwordField.set(leftIcon: "", isRegular: false)
         
-        loginButton.shapeGenerator = MDCPillShapeGenerator()
-        loginButton.setElevation(.raisedButtonResting, for: .normal)
-        loginButton.setElevation(.raisedButtonPressed, for: .highlighted)
-        
         triangleAnimationView.setAnimation(named: "triangle_animation.json")
     }
     
     func runShowAnimation() {
         let moveY = loginButton.frame.size.height/2
-        userNameField.prepareAnimateIn()
-        passwordField.prepareAnimateIn()
-        loginButton.prepareAnimationIn(moveAmount: moveY)
-        prepareButtonButtonAnimation()
-        prepareLogoAnimation()
         
-        animateLogo()
-        triangleAnimationView.play()
-        triangleAnimationView.animationSpeed = 1.1
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-            self.userNameField.animate(to: self.userNameWidth.constant, duration: 0.6).animate()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                self.passwordField.animate(to: self.passwordWidth.constant, duration: 0.6).animate()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    self.loginButton.animateIn(moveAmount: moveY, duration: 0.4)
-                    self.animateButtomButtons()
-                }
+        Choreo()
+            .prepareAnimations {
+                self.userNameField.prepareAnimateIn()
+                self.passwordField.prepareAnimateIn()
+                self.loginButton.prepareAnimationIn(moveAmount: moveY)
+                self.prepareButtonButtonAnimation()
+                self.prepareLogoAnimation()
             }
-            
-        }
+            .addAnimationPhase(startFraction: 0.0, durationFraction: 0.5) { duration in
+                self.animateLogo(duration: duration)
+                self.triangleAnimationView.play()
+                self.triangleAnimationView.animationSpeed = 1.1
+            }
+            .addAnimationPhase(startFraction: 0.2, durationFraction: 0.7) { duration in
+                self.userNameField.animate(to: self.userNameWidth.constant, duration: duration).animate()
+            }
+            .addAnimationPhase(startFraction: 0.3, durationFraction: 0.7) { duration in
+                self.passwordField.animate(to: self.passwordWidth.constant, duration: duration).animate()
+            }
+            .addAnimationPhase(startFraction: 0.5, durationFraction: 0.5){ duration in
+                self.loginButton.animateIn(moveAmount: moveY, duration: duration)
+            }
+            .addStaggeredAnimation(views: bottomButtons.arrangedSubviews, startFraction: 0.5, durationFraction: 0.4, delayFraction: 0.2) { (view, duration) in
+                view.animateIn(moveAmount: 10.0, duration: duration)
+            }
+            .animate(totalDuration: 0.85)
     }
     
     func runDismissAnimation(complete: @escaping () -> ()) {
@@ -102,22 +104,9 @@ class LoginView: UIView {
         logo.transform = logoHideTransform
     }
     
-    private func animateLogo() {
-        UIView.animate(withDuration: 0.4) {
+    private func animateLogo(duration: TimeInterval) {
+        UIView.animate(withDuration: duration) {
             self.logo.transform = .identity
-        }
-    }
-    
-    private func animateButtomButtons() {
-        let buttons = bottomButtons.arrangedSubviews
-        let totalAnimationTime = 0.4
-        let buttonAnimationTime = 0.2
-        let buttonDelay = (totalAnimationTime - buttonAnimationTime)/Double(buttons.count)
-        buttons.enumerated().forEach { args in
-            let (offset, button) = args
-            DispatchQueue.main.asyncAfter(deadline: .now() + Double(offset) * buttonDelay) {
-                button.animateIn(moveAmount: 10.0, duration: buttonAnimationTime)
-            }
         }
     }
     

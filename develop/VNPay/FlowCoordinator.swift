@@ -27,7 +27,9 @@ class FlowCoordinator: NSObject {
             return
         }
         loginView.loginDelegate = self
-        loginView.runShowAnimation()
+        loginView.onViewDidAppear = {
+            loginView.runShowAnimation()
+        }
     }
 }
 
