@@ -20,6 +20,7 @@ class DashboardViewController: UIViewController {
             }
             columnValues.forEach { buttonName in
                 let button = DashboardActionButton.button()
+                button.set(text: buttonName, icon: "")
                 columnStackView.addArrangedSubview(button)
             }
         }

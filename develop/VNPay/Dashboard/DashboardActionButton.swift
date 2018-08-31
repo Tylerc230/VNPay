@@ -10,6 +10,12 @@ import Foundation
 class DashboardActionButton: UIView {
     @IBOutlet var button: PillButton!
     @IBOutlet var label: UILabel!
+    
+    func set(text: String, icon: String) {
+        label.text = text
+        button.setTitle(icon, for: .normal)
+    }
+    
     class func button() -> DashboardActionButton {
         guard
             let button = UINib(nibName: "DashboardActionButton", bundle: nil)
