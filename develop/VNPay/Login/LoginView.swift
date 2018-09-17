@@ -96,15 +96,15 @@ class LoginView: UIView {
                 self.loginButton
                     .makeAlpha(0.0)
                     .duration(duration)
-                    .completion(complete)
                     .animate()
             }
             .addAnimationPhase(startFraction: 0.0, durationFraction: 1.0) { duration in
                 UIView.animate(withDuration: duration) {
                     self.logo.transform = logoHideTransform
                 }
-        }
-        .animate(totalDuration: 0.4)
+            }
+            .onComplete(complete)
+            .animate(totalDuration: 0.4)
     }
     
     private func prepareButtonButtonAnimation() {

@@ -15,14 +15,16 @@ class LoginDashboardAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard
             let loginView = transitionContext.viewController(forKey: .from) as? LoginViewController,
-            let dashboard = transitionContext.viewController(forKey: .to)
+            let dashboard = transitionContext.viewController(forKey: .to) as? DashboardViewController
             else {
                 return
         }
         let container = transitionContext.containerView
         loginView.runDismissAnimation {
-            transitionContext.completeTransition(true)
             container.addSubview(dashboard.view)
+            dashboard.runShowAnimation {
+                transitionContext.completeTransition(true)
+            }
         }
     }
 }
