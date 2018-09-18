@@ -9,6 +9,7 @@
 import Foundation
 import Lottie
 import MaterialComponents
+import Choreo
 import Stellar
 
 fileprivate let logoHideTransform = CGAffineTransform.identity.translatedBy(x: 0.0, y: -49).scaledBy(x: 0.65, y: 0.65)

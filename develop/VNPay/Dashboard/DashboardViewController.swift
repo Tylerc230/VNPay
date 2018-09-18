@@ -1,12 +1,5 @@
-//
-//  DashboardViewController.swift
-//  VNPay
-//
-//  Created by Tyler Casselman on 8/20/18.
-//  Copyright © 2018 13bit. All rights reserved.
-//
-
-import Foundation
+import Choreo
+import Disco
 class DashboardViewController: UIViewController {
     @IBOutlet var columns: UIStackView!
     func layoutButtons() {
@@ -35,9 +28,6 @@ class DashboardViewController: UIViewController {
         guard let stackViews = self.columns.arrangedSubviews as? [UIStackView] else {
             return
         }
-        guard let buttonSize = stackViews.first?.arrangedSubviews.first?.frame.size else {
-            return
-        }
         Choreo()
             .prepareAnimations {
                 stackViews
@@ -53,15 +43,11 @@ class DashboardViewController: UIViewController {
                 }
                 let columnButtons = stackView.arrangedSubviews
                 columnButtons.forEach { button in
-                    button
-                        .easing(.elasticOut)
-                        .scaleXY(0.0, 0.0)
-                        .reverses()
+                    _ = button.disco
                         .duration(duration)
-                        .animate()
-//                    UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.0, options: [], animations: {
-//                        button.transform = .identity
-//                    }, completion: nil)
+                        .setTiming(.springBased(0.75))
+                        .setTransform(to: .identity)
+                        .start()
                 }
             }
             .onComplete(complete)

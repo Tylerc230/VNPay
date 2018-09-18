@@ -1,4 +1,6 @@
 PODS:
+  - Choreo (0.1.0)
+  - Disco (0.1.0)
   - lottie-ios (2.5.0)
   - MaterialComponents (56.0.0):
     - MaterialComponents/ActivityIndicator (= 56.0.0)
@@ -439,6 +441,8 @@ PODS:
   - Stellar (0.67)
 
 DEPENDENCIES:
+  - Choreo (from `~/Dropbox/shared_code/AnimationLibs/Choreo`)
+  - Disco (from `~/Dropbox/shared_code/AnimationLibs/Disco`)
   - lottie-ios
   - MaterialComponents
   - Stellar (from `https://github.com/gaurav1981/Stellar`)
@@ -454,6 +458,10 @@ SPEC REPOS:
     - MotionTransitioning
 
 EXTERNAL SOURCES:
+  Choreo:
+    :path: "~/Dropbox/shared_code/AnimationLibs/Choreo"
+  Disco:
+    :path: "~/Dropbox/shared_code/AnimationLibs/Disco"
   Stellar:
     :git: https://github.com/gaurav1981/Stellar
 
@@ -463,6 +471,8 @@ CHECKOUT OPTIONS:
     :git: https://github.com/gaurav1981/Stellar
 
 SPEC CHECKSUMS:
+  Choreo: 775830736a7b1db1a920a88e9197b3431f36cf5a
+  Disco: 938b045709ba48eab7df05ecf83ddf7bcb53538f
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   MaterialComponents: e4edce947dba33f9c4dd14c34024602999afcbed
   MDFInternationalization: e355b0cebecf53d60233bd267084e49366c82513
@@ -472,6 +482,6 @@ SPEC CHECKSUMS:
   MotionTransitioning: 23d25edc2f4606efb922403cbac6d81af37aa33a
   Stellar: df980becd194eeb62d623af097582da0ef2219b9
 
-PODFILE CHECKSUM: 69f4672a50a59ba67c6ae7848f01224af37f491d
+PODFILE CHECKSUM: 58f0b2fdf0a440a5825c3e7369fefa46c6b4ea93
 
 COCOAPODS: 1.5.3
