@@ -10,7 +10,7 @@ import Foundation
 import Lottie
 import MaterialComponents
 import Choreo
-import Stellar
+import Disco
 
 fileprivate let logoHideTransform = CGAffineTransform.identity.translatedBy(x: 0.0, y: -49).scaledBy(x: 0.65, y: 0.65)
 
@@ -52,10 +52,10 @@ class LoginView: UIView {
                 self.triangleAnimationView.animationSpeed = 1.1
             }
             .addAnimationPhase(startFraction: 0.2, durationFraction: 0.7) { duration in
-                self.userNameField.animate(to: self.userNameWidth.constant, duration: duration).animate()
+                _ = self.userNameField.animate(to: self.userNameWidth.constant, duration: duration).start()
             }
             .addAnimationPhase(startFraction: 0.3, durationFraction: 0.7) { duration in
-                self.passwordField.animate(to: self.passwordWidth.constant, duration: duration).animate()
+                _ = self.passwordField.animate(to: self.passwordWidth.constant, duration: duration).start()
             }
             .addAnimationPhase(startFraction: 0.5, durationFraction: 0.5){ duration in
                 self.loginButton.animateIn(moveAmount: moveY, duration: duration)
@@ -73,31 +73,31 @@ class LoginView: UIView {
                 self.passwordField.showContents = false
             }
             .addAnimationPhase(startFraction: 0.0, durationFraction: 0.5) { duration in
-                self.userNameField
+                _ = self.userNameField
                     .animate(to: 45.0, duration: duration)
                     .then()
-                    .makeAlpha(0.0)
-                    .animate()
-                self.passwordField
+                    .setAlpha(to:0.0)
+                    .start()
+                _ = self.passwordField
                     .animate(to: 45.0, duration: duration)
                     .then()
-                    .makeAlpha(0.0)
-                    .animate()
+                    .setAlpha(to:0.0)
+                    .start()
             }
             .addAnimationPhase(startFraction: 0.0, durationFraction: 0.375) { duration in
-                self.bottomButtons
-                    .makeAlpha(0.0)
+                _ = self.bottomButtons.disco
+                    .setAlpha(to: 0.0)
                     .duration(duration)
-                    .moveY(self.bottomButtons.frame.height)
-                    .animate()
+                    .setTransform(to: CGAffineTransform(translationX: 0.0, y: self.bottomButtons.frame.height))
+                    .start()
             }
             .addAnimationPhase(startFraction: 0.35, durationFraction: 0.15) { duration in
                 self.triangleAnimationView.animationSpeed = -3.3;
                 self.triangleAnimationView.play()
-                self.loginButton
-                    .makeAlpha(0.0)
+                _ = self.loginButton.disco
+                    .setAlpha(to: 0.0)
                     .duration(duration)
-                    .animate()
+                    .start()
             }
             .addAnimationPhase(startFraction: 0.0, durationFraction: 1.0) { duration in
                 UIView.animate(withDuration: duration) {
@@ -123,16 +123,16 @@ class LoginView: UIView {
 fileprivate extension UIView {
     func prepareAnimationIn(moveAmount: CGFloat) {
         alpha = 0.0
-        frame.origin.y += moveAmount
+        transform = CGAffineTransform(translationX: 0.0, y: moveAmount)
     }
     
     func animateIn(moveAmount: CGFloat, duration: TimeInterval) {
-        let easing = TimingFunctionType.custom(0.33, 0.78, 0.34, 1.0)
-        makeAlpha(1.0)
-            .moveY(-moveAmount)
-            .easing(easing)
+        _ = disco
+            .setTiming(.bezier(CGPoint(x: 0.33, y: 0.78), CGPoint(x: 0.34, y:1.0)))
             .duration(duration)
-            .animate()
+            .setAlpha(to: 1.0)
+            .setTransform(to: .identity)
+            .start()
     }
 }
 
@@ -142,11 +142,13 @@ fileprivate extension PillTextField {
         alpha = 0.0
     }
     
-    func animate(to width: CGFloat, duration: CFTimeInterval) -> Self {
-        let easing = TimingFunctionType.custom(0.33, 0.78, 0.34, 1.0)
-        return makeAlpha(1.0)
-            .makeWidth(width)
+    func animate(to width: CGFloat, duration: CFTimeInterval) -> AnimationSequence {
+        var frame = self.frame
+        frame.size.width = width
+        return disco
             .duration(duration)
-            .easing(easing)
+            .setTiming(.bezier(CGPoint(x: 0.33, y: 0.79), CGPoint(x: 0.34, y: 1.0)))
+            .setAlpha(to: 1.0)
+            .updateFrame(to: frame)
     }
 }

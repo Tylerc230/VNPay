@@ -3,7 +3,6 @@ platform :ios, '10.0'
 target 'VNPay' do
   pod 'lottie-ios'
   pod 'MaterialComponents'
-  pod 'Stellar', :git => 'https://github.com/gaurav1981/Stellar'
   pod 'Disco', :path => '~/Dropbox/shared_code/AnimationLibs/Disco'
   pod 'Choreo', :path => '~/Dropbox/shared_code/AnimationLibs/Choreo'
 end
