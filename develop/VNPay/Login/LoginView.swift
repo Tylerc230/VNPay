@@ -27,8 +27,8 @@ class LoginView: UIView {
     var passwordTextFieldController: TextInputControllerPill!
     override func awakeFromNib() {
          super.awakeFromNib()
-        userNameTextFieldController = TextInputControllerPill(textInput: userNameField)
-        passwordTextFieldController = TextInputControllerPill(textInput: passwordField)
+//        userNameTextFieldController = TextInputControllerPill(textInput: userNameField)
+//        passwordTextFieldController = TextInputControllerPill(textInput: passwordField)
         userNameField.set(leftIcon: "", isRegular: true)
         passwordField.set(leftIcon: "", isRegular: false)
         
@@ -69,8 +69,8 @@ class LoginView: UIView {
     func runDismissAnimation(complete: @escaping () -> ()) {
         Choreo()
             .prepareAnimations {
-                self.userNameField.showContents = false
-                self.passwordField.showContents = false
+//                self.userNameField.showContents = false
+//                self.passwordField.showContents = false
             }
             .addAnimationPhase(startFraction: 0.0, durationFraction: 0.5) { duration in
                 _ = self.userNameField

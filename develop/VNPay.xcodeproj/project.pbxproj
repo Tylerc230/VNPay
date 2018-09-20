@@ -26,6 +26,7 @@
 		2FD5D48A20F5C51E00B6831D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FD5D48820F5C51E00B6831D /* LaunchScreen.storyboard */; };
 		2FD5D49220F5D34F00B6831D /* triangle_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FD5D49120F5D34E00B6831D /* triangle_animation.json */; };
 		2FDA3BF92106B71F00210E9D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FDA3BF82106B71F00210E9D /* Colors.xcassets */; };
+		2FF89B332154021500E2F432 /* RoundedShadowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF89B322154021500E2F432 /* RoundedShadowLayer.swift */; };
 		F415E250CC67654048E48910 /* Pods_VNPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE97AD7F9C3FC81EC0FB879 /* Pods_VNPay.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		2FD5D48B20F5C51E00B6831D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FD5D49120F5D34E00B6831D /* triangle_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = triangle_animation.json; path = VNPay/Login/triangle_animation.json; sourceTree = SOURCE_ROOT; };
 		2FDA3BF82106B71F00210E9D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		2FF89B322154021500E2F432 /* RoundedShadowLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedShadowLayer.swift; sourceTree = "<group>"; };
 		ABE97AD7F9C3FC81EC0FB879 /* Pods_VNPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VNPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA3825542228E1B1C18AD761 /* Pods-VNPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VNPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-VNPay/Pods-VNPay.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +99,7 @@
 		2FB4D744212BC49000AF4802 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2FF89B322154021500E2F432 /* RoundedShadowLayer.swift */,
 				2FB4D745212BC4A100AF4802 /* PillButton.swift */,
 			);
 			path = Common;
@@ -299,6 +302,7 @@
 				2FB4D743212BC32400AF4802 /* DashboardActionButton.swift in Sources */,
 				2F337FDA20F82304005DC0BA /* PillTextField.swift in Sources */,
 				2F051A9D210AA675001D2CF7 /* FlowCoordinator.swift in Sources */,
+				2FF89B332154021500E2F432 /* RoundedShadowLayer.swift in Sources */,
 				2F337FDC20F83214005DC0BA /* TextInputControllerPill.swift in Sources */,
 				2FD5D48020F5C51C00B6831D /* AppDelegate.swift in Sources */,
 				2FB4D73C212BBD8300AF4802 /* DashboardViewController.swift in Sources */,

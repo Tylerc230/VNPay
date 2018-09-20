@@ -28,7 +28,7 @@ class TextInputControllerPill: MDCTextInputControllerBase {
         guard let textInput = textInput as? PillTextField else {
             return
         }
-        textInput.elevation =  textInput.isEditing ? .raisedButtonPressed : .raisedButtonResting
+//        textInput.elevation =  textInput.isEditing ? .raisedButtonPressed : .raisedButtonResting
     }
     
     override func textInsets(_ defaultInsets: UIEdgeInsets) -> UIEdgeInsets {
