@@ -23,12 +23,8 @@ class LoginView: UIView {
     @IBOutlet var passwordWidth: NSLayoutConstraint!
     @IBOutlet var loginButton: PillButton!
     @IBOutlet var bottomButtons: UIStackView!
-    var userNameTextFieldController: TextInputControllerPill!
-    var passwordTextFieldController: TextInputControllerPill!
     override func awakeFromNib() {
          super.awakeFromNib()
-//        userNameTextFieldController = TextInputControllerPill(textInput: userNameField)
-//        passwordTextFieldController = TextInputControllerPill(textInput: passwordField)
         userNameField.set(leftIcon: "", isRegular: true)
         passwordField.set(leftIcon: "", isRegular: false)
         

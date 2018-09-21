@@ -7,17 +7,16 @@
 //
 
 import Foundation
-import MaterialComponents
 class PillTextField: UITextField {
-//    let pillShapeGenerator = MDCPillShapeGenerator()
-//    private let hideContentView = MDCTextInputBorderView(frame: .zero)
     override class var layerClass: AnyClass {
         return RoundedShadowLayer.self
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
@@ -28,40 +27,22 @@ class PillTextField: UITextField {
     }
     
     private func commonInit() {
+        addTarget(self, action: #selector(startedEditing), for: .editingDidBegin)
+        addTarget(self, action: #selector(stopEditing), for: .editingDidEnd)
         borderStyle = .none
-        layer.shadowOpacity = 0.5
         layer.fillColor = UIColor.white.cgColor
-        layer.shadowColor = UIColor.gray.cgColor
-        layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        layer.shadowRadius = 1.0
-    }
-   /*
-    var shadowLayer: MDCShapedShadowLayer {
-        return layer as! MDCShapedShadowLayer
-    }
-
-    var elevation: ShadowElevation {
-        set {
-            shadowLayer.elevation = newValue
-        }
-
-        get {
-            return shadowLayer.elevation
-        }
+        layer.setActive(false, animated: false)
     }
     
-    var showContents: Bool = true {
-        didSet {
-            if showContents {
-                hideContentView.removeFromSuperview()
-            } else {
-                hideContentView.layer.zPosition = 1.0
-                hideContentView.frame = bounds
-                addSubview(hideContentView)
-            }
-        }
+    @objc
+    private func startedEditing() {
+        layer.setActive(true, animated: true)
     }
-   */
+   
+    @objc
+    private func stopEditing() {
+        layer.setActive(false, animated: true)
+    }
     func set(leftIcon: String?, isRegular: Bool) {
         guard let leftIcon = leftIcon else {
             leftView = nil
@@ -78,30 +59,10 @@ class PillTextField: UITextField {
         
     }
 
-    /*
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        shadowLayer.shapeGenerator = pillShapeGenerator
-        if let borderView = borderView {
-            setup(borderView: borderView)
-        }
-        setup(borderView: hideContentView)
-    }
- */
-    
     override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
         var rect = super.leftViewRect(forBounds: bounds)
         rect.size.width = 40
         return rect
     }
-    
-    /*
-    func setup(borderView: MDCTextInputBorderView) {
-        borderView.borderFillColor = .white
-        if let path = pillShapeGenerator.path(for: bounds.size)?.takeRetainedValue() {
-            borderView.borderPath = UIBezierPath(cgPath: path)
-        }
-    }
- */
 }
 
