@@ -23,9 +23,39 @@ class RoundedShadowLayer: CAShapeLayer {
         commonInit()
     }
     
+    override var bounds: CGRect {
+        didSet {
+            path = UIBezierPath(roundedRect: bounds, cornerRadius: bounds.height/2).cgPath
+            shadowPath = path
+        }
+    }
+    
+    override func action(forKey event: String) -> CAAction? {
+        guard event == "path" || event == "shadowPath" else {
+            return super.action(forKey: event)
+        }
+        guard let key = animationKeys()?.first, let modelAnimation = super.animation(forKey: key) else {
+            return super.action(forKey: event)
+        }
+        
+        let animation = CABasicAnimation(keyPath: event)
+        animation.duration = modelAnimation.duration
+        animation.timingFunction = modelAnimation.timingFunction
+        switch event {
+        case "path":
+            animation.fromValue = path
+        case "shadowPath":
+            animation.fromValue = shadowPath
+        default:
+            break
+        }
+        return animation
+    }
+    
     func commonInit() {
         shadowOpacity = 0.5
         shadowColor = UIColor.gray.cgColor
+        needsDisplayOnBoundsChange = true
     }
     
     func setActive(_ active: Bool, animated: Bool) {
@@ -54,9 +84,4 @@ class RoundedShadowLayer: CAShapeLayer {
         add(animation, forKey: animation.keyPath)
     }
 
-    override func layoutSublayers() {
-        super.layoutSublayers()
-        path = UIBezierPath(roundedRect: bounds, cornerRadius: bounds.height/2).cgPath
-        shadowPath = path
-    }
 }

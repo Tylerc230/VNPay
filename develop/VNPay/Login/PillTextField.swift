@@ -11,7 +11,7 @@ class PillTextField: UITextField {
     override class var layerClass: AnyClass {
         return RoundedShadowLayer.self
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
