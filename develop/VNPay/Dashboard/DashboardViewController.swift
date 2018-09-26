@@ -3,17 +3,18 @@ import Disco
 class DashboardViewController: UIViewController {
     @IBOutlet var columns: UIStackView!
     func layoutButtons() {
-        let buttons = [[("My Profile"), ("Transaction Report"), ("Other")],
-            [("Fund Transfer"), ("Register"), ("Search")],
-            [("Payment"), ("Top Up"), ("Settings")]]
+        let buttons = [[("My Profile", ""), ("Transaction Report", ""), ("Other", "")],
+            [("Fund Transfer", ""), ("Register", ""), ("Search", "")],
+            [("Payment", ""), ("Top Up", ""), ("Settings", "")]]
         buttons.enumerated().forEach { args in
             let (columnNum, columnValues) = args
             guard let columnStackView = columns.arrangedSubviews[columnNum] as? UIStackView else {
                 return
             }
-            columnValues.forEach { buttonName in
+            columnValues.forEach { args in
+                let (text, icon) = args
                 let button = DashboardActionButton.button()
-                button.set(text: buttonName, icon: "")
+                button.set(text: text, icon: icon)
                 columnStackView.addArrangedSubview(button)
             }
         }
