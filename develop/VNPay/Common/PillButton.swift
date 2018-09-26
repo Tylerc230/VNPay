@@ -7,7 +7,15 @@
 //
 
 import Foundation
-class PillButton: MDCButton {
+class PillButton: UIButton {
+    public override class var layerClass: Swift.AnyClass {
+        return RoundedShadowLayer.self
+    }
+    
+    override var layer: RoundedShadowLayer {
+        return super.layer as! RoundedShadowLayer
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -24,9 +32,20 @@ class PillButton: MDCButton {
     }
     
     func commonInit() {
-        shapeGenerator = MDCPillShapeGenerator()
-        setElevation(.raisedButtonResting, for: .normal)
-        setElevation(.raisedButtonPressed, for: .highlighted)
-        
+        addTarget(self, action: #selector(touchDown), for: .touchDown)
+        addTarget(self, action: #selector(touchUp), for: .touchUpInside)
+        backgroundColor = .clear
+        layer.fillColor = UIColor.white.cgColor
+        layer.setActive(false, animated: false)
+    }
+    
+    @objc
+    func touchDown() {
+        layer.setActive(true, animated: true)
+    }
+    
+    @objc
+    func touchUp() {
+        layer.setActive(false, animated: true)
     }
 }
