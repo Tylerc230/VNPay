@@ -8,6 +8,7 @@
 
 import Foundation
 class RoundedShadowLayer: CAShapeLayer {
+    let animatableKeyPaths = ["path": \CAShapeLayer.path, "shadowPath": \.shadowPath]
     override init() {
         super.init()
         commonInit()
@@ -31,7 +32,7 @@ class RoundedShadowLayer: CAShapeLayer {
     }
     
     override func action(forKey event: String) -> CAAction? {
-        guard event == "path" || event == "shadowPath" else {
+        guard let keyPath = animatableKeyPaths[event] else {
             return super.action(forKey: event)
         }
         guard let key = animationKeys()?.first, let modelAnimation = super.animation(forKey: key) else {
@@ -41,14 +42,7 @@ class RoundedShadowLayer: CAShapeLayer {
         let animation = CABasicAnimation(keyPath: event)
         animation.duration = modelAnimation.duration
         animation.timingFunction = modelAnimation.timingFunction
-        switch event {
-        case "path":
-            animation.fromValue = path
-        case "shadowPath":
-            animation.fromValue = shadowPath
-        default:
-            break
-        }
+        animation.fromValue = self[keyPath: keyPath]
         return animation
     }
     

@@ -37,6 +37,8 @@ class LoginView: UIView {
         Choreo()
             .prepareAnimations {
                 self.userNameField.prepareAnimateIn()
+                self.userNameWidth.isActive = false
+                self.passwordWidth.isActive = false
                 self.passwordField.prepareAnimateIn()
                 self.loginButton.prepareAnimationIn(moveAmount: moveY)
                 self.prepareButtonButtonAnimation()
@@ -48,10 +50,21 @@ class LoginView: UIView {
                 self.triangleAnimationView.animationSpeed = 1.1
             }
             .addAnimationPhase(startFraction: 0.2, durationFraction: 0.7) { duration in
-                _ = self.userNameField.animate(to: self.userNameWidth.constant, duration: duration).start()
+                _ = self.userNameField
+                    .animate(duration: duration)
+                    .addAnimationBlock { view in
+                        self.userNameWidth.isActive = true
+                        view.layoutIfNeeded()
+                    }
+                    .start()
             }
             .addAnimationPhase(startFraction: 0.3, durationFraction: 0.7) { duration in
-                _ = self.passwordField.animate(to: self.passwordWidth.constant, duration: duration).start()
+                _ = self.passwordField
+                    .animate(duration: duration)
+                    .addAnimationBlock { view in
+                        self.passwordWidth.isActive = true
+                        view.layoutIfNeeded()
+                    }.start()
             }
             .addAnimationPhase(startFraction: 0.5, durationFraction: 0.5){ duration in
                 self.loginButton.animateIn(moveAmount: moveY, duration: duration)
@@ -70,12 +83,20 @@ class LoginView: UIView {
             }
             .addAnimationPhase(startFraction: 0.0, durationFraction: 0.5) { duration in
                 _ = self.userNameField
-                    .animate(to: 45.0, duration: duration)
+                    .animate(duration: duration)
+                    .addAnimationBlock { view in
+                        self.userNameWidth.isActive = false
+                        view.layoutIfNeeded()
+                    }
                     .then()
                     .setAlpha(to:0.0)
                     .start()
                 _ = self.passwordField
-                    .animate(to: 45.0, duration: duration)
+                    .animate(duration: duration)
+                    .addAnimationBlock { view in
+                        self.passwordWidth.isActive = false
+                        view.layoutIfNeeded()
+                    }
                     .then()
                     .setAlpha(to:0.0)
                     .start()
@@ -134,17 +155,13 @@ fileprivate extension UIView {
 
 fileprivate extension PillTextField {
     func prepareAnimateIn() {
-        frame.size.width = 45.0
         alpha = 0.0
     }
     
-    func animate(to width: CGFloat, duration: CFTimeInterval) -> AnimationSequence {
-        var frame = self.frame
-        frame.size.width = width
+    func animate(duration: CFTimeInterval) -> AnimationSequence {
         return disco
             .duration(duration)
             .setTiming(.bezier(CGPoint(x: 0.33, y: 0.79), CGPoint(x: 0.34, y: 1.0)))
             .setAlpha(to: 1.0)
-            .updateFrame(to: frame)
     }
 }

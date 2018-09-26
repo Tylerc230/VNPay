@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -53,12 +54,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="rJ3-Io-Hdp">
                                 <rect key="frame" x="92" y="87" width="136" height="40"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gMs-69-iHc" customClass="PillTextField" customModule="VNPay" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gMs-69-iHc" customClass="PillTextField" customModule="VNPay" customModuleProvider="target">
                                 <rect key="frame" x="30" y="204" width="260" height="45"/>
                                 <color key="tintColor" name="DarkBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="262-dD-1zJ"/>
                                     <constraint firstAttribute="width" constant="260" id="3zy-rh-v4H"/>
+                                    <constraint firstAttribute="width" priority="750" constant="45" id="b68-hd-u8t"/>
                                 </constraints>
                                 <color key="textColor" name="DarkBlue"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
@@ -68,6 +70,7 @@
                                 <rect key="frame" x="30" y="266" width="260" height="45"/>
                                 <color key="tintColor" name="DarkBlue"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" priority="750" constant="45" id="KCm-D1-V5T"/>
                                     <constraint firstAttribute="width" constant="260" id="Xq9-se-4zd"/>
                                     <constraint firstAttribute="height" constant="45" id="gm5-6r-uSN"/>
                                 </constraints>
@@ -127,12 +130,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gMs-69-iHc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="184" id="0IT-Ab-WtG"/>
-                            <constraint firstItem="94k-tv-Aip" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="27L-6t-HFf"/>
+                            <constraint firstItem="94k-tv-Aip" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-130" id="27L-6t-HFf"/>
                             <constraint firstItem="pEv-7R-nQ8" firstAttribute="top" secondItem="94k-tv-Aip" secondAttribute="bottom" constant="57" id="8Cv-UP-tm7"/>
                             <constraint firstItem="94k-tv-Aip" firstAttribute="top" secondItem="gMs-69-iHc" secondAttribute="bottom" constant="17" id="Jtj-nW-QjD"/>
                             <constraint firstItem="0jB-2s-67a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LY2-Qb-EU8"/>
                             <constraint firstItem="rJ3-Io-Hdp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lf9-n9-XmI"/>
-                            <constraint firstItem="gMs-69-iHc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aav-vX-qoc"/>
+                            <constraint firstItem="gMs-69-iHc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-130" id="aav-vX-qoc"/>
                             <constraint firstItem="UCS-NS-eee" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="18" id="d2T-oK-KNt"/>
                             <constraint firstItem="rJ3-Io-Hdp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="67" id="dlk-LX-L3g"/>
                             <constraint firstItem="pEv-7R-nQ8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gxV-kl-Vdb"/>
