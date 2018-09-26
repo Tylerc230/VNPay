@@ -2,7 +2,6 @@ use_frameworks!
 platform :ios, '10.0'
 target 'VNPay' do
   pod 'lottie-ios'
-  pod 'MaterialComponents'
   pod 'Disco', :path => '~/Dropbox/shared_code/AnimationLibs/Disco'
   pod 'Choreo', :path => '~/Dropbox/shared_code/AnimationLibs/Choreo'
 end

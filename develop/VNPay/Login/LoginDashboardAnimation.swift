@@ -6,7 +6,7 @@
 //  Copyright © 2018 13bit. All rights reserved.
 //
 
-import Foundation
+import UIKit
 class LoginDashboardAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.5

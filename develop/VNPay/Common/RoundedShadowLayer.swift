@@ -6,7 +6,7 @@
 //  Copyright © 2018 13bit. All rights reserved.
 //
 
-import Foundation
+import UIKit
 class RoundedShadowLayer: CAShapeLayer {
     let animatableKeyPaths = ["path": \CAShapeLayer.path, "shadowPath": \.shadowPath]
     override init() {

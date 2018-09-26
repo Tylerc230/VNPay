@@ -6,9 +6,8 @@
 //  Copyright © 2018 13bit. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Lottie
-import MaterialComponents
 import Choreo
 import Disco
 

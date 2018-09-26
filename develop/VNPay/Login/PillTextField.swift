@@ -6,7 +6,8 @@
 //  Copyright © 2018 13bit. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
 class PillTextField: UITextField {
     override class var layerClass: AnyClass {
         return RoundedShadowLayer.self

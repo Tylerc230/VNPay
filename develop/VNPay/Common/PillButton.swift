@@ -6,7 +6,8 @@
 //  Copyright © 2018 13bit. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
 class PillButton: UIButton {
     public override class var layerClass: Swift.AnyClass {
         return RoundedShadowLayer.self

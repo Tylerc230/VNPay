@@ -6,7 +6,7 @@
 //  Copyright © 2018 13bit. All rights reserved.
 //
 
-import Foundation
+import UIKit
 class DashboardActionButton: UIView {
     @IBOutlet var button: PillButton!
     @IBOutlet var label: UILabel!
