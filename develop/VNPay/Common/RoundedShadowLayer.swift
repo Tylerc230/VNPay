@@ -60,11 +60,11 @@ class RoundedShadowLayer: CAShapeLayer {
         let zHeight: CGFloat
         if active {
             shadowOffset = CGSize(width: 0.0, height: 7.0)
-            shadowRadius = 6.0
+            shadowRadius = 10.0
             zHeight = 40.0
         } else {
-            shadowOffset = CGSize(width: 0.0, height: 2.0)
-            shadowRadius = 1.0
+            shadowOffset = CGSize(width: 0.0, height: 7.0)
+            shadowRadius = 7.0
             zHeight = 0.0
         }
         let transform = perspectiveTransform(for: zHeight)

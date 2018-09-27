@@ -1,6 +1,7 @@
 import Choreo
 import Disco
 class DashboardViewController: UIViewController {
+    @IBOutlet var logo: UIImageView!
     @IBOutlet var columns: UIStackView!
     func layoutButtons() {
         let buttons = [[("My Profile", ""), ("Transaction Report", ""), ("Other", "")],
@@ -22,6 +23,7 @@ class DashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        logo.transform = logoHideTransform
         layoutButtons()
     }
     

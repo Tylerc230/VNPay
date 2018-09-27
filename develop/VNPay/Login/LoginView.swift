@@ -11,8 +11,6 @@ import Lottie
 import Choreo
 import Disco
 
-fileprivate let logoHideTransform = CGAffineTransform.identity.translatedBy(x: 0.0, y: -49).scaledBy(x: 0.65, y: 0.65)
-
 class LoginView: UIView {
     @IBOutlet var triangleAnimationView: LOTAnimationView!
     @IBOutlet var logo: UIImageView!

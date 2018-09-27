@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,22 +18,22 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DashboardActionButton" customModule="VNPay" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="75" height="88"/>
+            <rect key="frame" x="0.0" y="0.0" width="70" height="114"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXc-3y-Mqd" customClass="PillButton" customModule="VNPay" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="75" id="KAX-A8-x5v"/>
+                        <constraint firstAttribute="width" constant="70" id="KAX-A8-x5v"/>
                         <constraint firstAttribute="width" secondItem="RXc-3y-Mqd" secondAttribute="height" id="zP6-fD-d1V"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="FontAwesome5FreeRegular" family="Font Awesome 5 Free" pointSize="34"/>
+                    <fontDescription key="fontDescription" name="FontAwesome5FreeRegular" family="Font Awesome 5 Free" pointSize="28"/>
                     <state key="normal" title="">
                         <color key="titleColor" red="0.0078431372549019607" green="0.047058823529411764" blue="0.44705882352941179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wp2-TI-IUn">
-                    <rect key="frame" x="22.5" y="78" width="31" height="10"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Fund Transfer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Wp2-TI-IUn">
+                    <rect key="frame" x="-4.5" y="83" width="79" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0078431372550000003" green="0.047058823530000002" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -42,11 +41,13 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Wp2-TI-IUn" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="G5O-gE-SH2"/>
+                <constraint firstAttribute="bottom" secondItem="RXc-3y-Mqd" secondAttribute="bottom" constant="41" id="1h5-6f-0x6"/>
+                <constraint firstItem="Wp2-TI-IUn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="5LM-cG-hG2"/>
+                <constraint firstItem="Wp2-TI-IUn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-6" id="CmW-qr-jfI"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Wp2-TI-IUn" secondAttribute="trailing" constant="-6" id="Lnc-LD-PDu"/>
                 <constraint firstItem="RXc-3y-Mqd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Rod-xK-hDg"/>
                 <constraint firstItem="RXc-3y-Mqd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZvE-GS-68o"/>
-                <constraint firstItem="Wp2-TI-IUn" firstAttribute="top" secondItem="RXc-3y-Mqd" secondAttribute="bottom" constant="3" id="hYL-cL-d1R"/>
-                <constraint firstItem="Wp2-TI-IUn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vfc-Kx-2dO"/>
+                <constraint firstItem="Wp2-TI-IUn" firstAttribute="top" secondItem="RXc-3y-Mqd" secondAttribute="bottom" constant="13" id="hYL-cL-d1R"/>
                 <constraint firstAttribute="trailing" secondItem="RXc-3y-Mqd" secondAttribute="trailing" id="yzX-w0-yvh"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
@@ -57,7 +58,7 @@
                 <outlet property="button" destination="RXc-3y-Mqd" id="pE8-c2-Xcv"/>
                 <outlet property="label" destination="Wp2-TI-IUn" id="noC-fp-mXH"/>
             </connections>
-            <point key="canvasLocation" x="-104.5" y="-230"/>
+            <point key="canvasLocation" x="-109.59999999999999" y="-229.38530734632684"/>
         </view>
     </objects>
 </document>

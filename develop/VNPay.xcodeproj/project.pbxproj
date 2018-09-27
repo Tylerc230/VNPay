@@ -10,6 +10,7 @@
 		2F051A9D210AA675001D2CF7 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F051A9C210AA675001D2CF7 /* FlowCoordinator.swift */; };
 		2F051AA0210AAA5D001D2CF7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F051A9F210AAA5D001D2CF7 /* LoginView.swift */; };
 		2F337FDA20F82304005DC0BA /* PillTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F337FD920F82304005DC0BA /* PillTextField.swift */; };
+		2F66A581215DA0C300DBDECB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66A580215DA0C300DBDECB /* Constants.swift */; };
 		2FB4B02221005235001B9F97 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB4B02121005234001B9F97 /* logo@2x.png */; };
 		2FB4B02D21016E31001B9F97 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FB4B02B21016E30001B9F97 /* fa-solid-900.ttf */; };
 		2FB4B02E21016E31001B9F97 /* fa-regular-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FB4B02C21016E30001B9F97 /* fa-regular-400.ttf */; };
@@ -34,6 +35,7 @@
 		2F051A9C210AA675001D2CF7 /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
 		2F051A9F210AAA5D001D2CF7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2F337FD920F82304005DC0BA /* PillTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillTextField.swift; sourceTree = "<group>"; };
+		2F66A580215DA0C300DBDECB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2FB4B02121005234001B9F97 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		2FB4B02B21016E30001B9F97 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
 		2FB4B02C21016E30001B9F97 /* fa-regular-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.ttf"; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				2FF89B322154021500E2F432 /* RoundedShadowLayer.swift */,
 				2FB4D745212BC4A100AF4802 /* PillButton.swift */,
+				2F66A580215DA0C300DBDECB /* Constants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FB4D746212BC4A100AF4802 /* PillButton.swift in Sources */,
+				2F66A581215DA0C300DBDECB /* Constants.swift in Sources */,
 				2F051AA0210AAA5D001D2CF7 /* LoginView.swift in Sources */,
 				2FB4D736212930A900AF4802 /* LoginDashboardAnimation.swift in Sources */,
 				2FD5D48220F5C51C00B6831D /* LoginViewController.swift in Sources */,
