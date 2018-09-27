@@ -55,19 +55,33 @@ class RoundedShadowLayer: CAShapeLayer {
     func setActive(_ active: Bool, animated: Bool) {
         let shadowRadius: CGFloat
         let shadowOffset: CGSize
-        if (active) {
+        let zHeight: CGFloat
+        if active {
             shadowOffset = CGSize(width: 0.0, height: 7.0)
             shadowRadius = 6.0
+            zHeight = 40.0
         } else {
             shadowOffset = CGSize(width: 0.0, height: 2.0)
             shadowRadius = 1.0
+            zHeight = 0.0
         }
-        if (animated) {
+        let transform = perspectiveTransform(for: zHeight)
+        if animated {
+            animate(keypath: "transform", from: self.transform, to: transform)
             animate(keypath: "shadowOffset", from: self.shadowOffset, to: shadowOffset)
             animate(keypath: "shadowRadius", from: self.shadowRadius, to: shadowRadius)
         }
         self.shadowOffset = shadowOffset
         self.shadowRadius = shadowRadius
+        self.transform = transform
+
+    }
+    
+    func perspectiveTransform(for zHeight: CGFloat) -> CATransform3D {
+        var t = CATransform3DIdentity
+        t.m34 = 1.0/(-500.0)
+        t = CATransform3DTranslate(t, 0.0, 0.0, zHeight)
+        return t
     }
     
     func animate<T>(keypath: String, from start: T, to end: T) {
