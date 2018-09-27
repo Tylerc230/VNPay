@@ -50,14 +50,27 @@ class PillTextField: UITextField {
             return
         }
         leftViewMode = .always
-        let label = UILabel(frame: CGRect(x: 10, y: 0, width: 20, height: 20))
+        leftView = label(for: leftIcon, isRegular: isRegular, width: 40, color: UIColor(named: "LightBlue")!)
+        
+    }
+    
+    func set(rightIcon: String?, isRegular: Bool) {
+        guard let rightIcon = rightIcon else {
+            rightView = nil
+            return
+        }
+        rightViewMode = .always
+        rightView = label(for: rightIcon, isRegular: isRegular, width: 30.0, color: .lightGray)
+    }
+    
+    func label(for icon:String, isRegular: Bool, width: CGFloat, color: UIColor) -> UILabel {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: 20))
         let fontName = isRegular ? "FontAwesome5FreeRegular" : "FontAwesome5FreeSolid"
         label.font = UIFont(name: fontName, size: 14.0)
-        label.textColor = UIColor(named: "LightBlue")
-        label.text = leftIcon
-        label.textAlignment = .right
-        leftView = label
-        
+        label.textColor = color
+        label.text = icon
+        label.textAlignment = .center
+        return label
     }
 
     override func leftViewRect(forBounds bounds: CGRect) -> CGRect {

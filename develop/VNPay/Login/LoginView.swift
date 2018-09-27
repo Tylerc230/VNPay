@@ -26,6 +26,7 @@ class LoginView: UIView {
          super.awakeFromNib()
         userNameField.set(leftIcon: "", isRegular: true)
         passwordField.set(leftIcon: "", isRegular: false)
+        passwordField.set(rightIcon: "", isRegular: true)
         
         triangleAnimationView.setAnimation(named: "triangle_animation.json")
     }
