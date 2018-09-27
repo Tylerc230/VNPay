@@ -50,6 +50,8 @@ class RoundedShadowLayer: CAShapeLayer {
         shadowOpacity = 0.5
         shadowColor = UIColor.gray.cgColor
         needsDisplayOnBoundsChange = true
+        fillColor = UIColor.white.cgColor
+        setActive(false, animated: false)
     }
     
     func setActive(_ active: Bool, animated: Bool) {

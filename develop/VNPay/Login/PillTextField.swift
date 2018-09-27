@@ -9,6 +9,7 @@
 import UIKit
 
 class PillTextField: UITextField {
+    var maskSublayer: CALayer?
     override class var layerClass: AnyClass {
         return RoundedShadowLayer.self
     }
@@ -27,12 +28,15 @@ class PillTextField: UITextField {
         return super.layer as! RoundedShadowLayer
     }
     
+    override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        self.maskSublayer?.frame = layer.bounds
+    }
+    
     private func commonInit() {
         addTarget(self, action: #selector(startedEditing), for: .editingDidBegin)
         addTarget(self, action: #selector(stopEditing), for: .editingDidEnd)
         borderStyle = .none
-        layer.fillColor = UIColor.white.cgColor
-        layer.setActive(false, animated: false)
     }
     
     @objc
@@ -44,13 +48,32 @@ class PillTextField: UITextField {
     private func stopEditing() {
         layer.setActive(false, animated: true)
     }
+    
+    var showContents: Bool = true {
+        didSet {
+            if showContents  {
+                self.maskSublayer?.removeFromSuperlayer()
+                self.maskSublayer = nil
+            } else {
+                let layer = CALayer(layer: self.layer)
+                layer.backgroundColor = UIColor.white.cgColor
+                layer.frame = self.layer.bounds
+                layer.cornerRadius = frame.height/2
+                layer.masksToBounds = true
+                layer.zPosition = 1.0
+                self.layer.addSublayer(layer)
+                self.maskSublayer = layer
+            }
+        }
+    }
+    
     func set(leftIcon: String?, isRegular: Bool) {
         guard let leftIcon = leftIcon else {
             leftView = nil
             return
         }
         leftViewMode = .always
-        leftView = label(for: leftIcon, isRegular: isRegular, width: 40, color: UIColor(named: "LightBlue")!)
+        leftView = label(for: leftIcon, isRegular: isRegular, color: UIColor(named: "LightBlue")!)
         
     }
     
@@ -60,11 +83,11 @@ class PillTextField: UITextField {
             return
         }
         rightViewMode = .always
-        rightView = label(for: rightIcon, isRegular: isRegular, width: 30.0, color: .lightGray)
+        rightView = label(for: rightIcon, isRegular: isRegular, color: .lightGray)
     }
     
-    func label(for icon:String, isRegular: Bool, width: CGFloat, color: UIColor) -> UILabel {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: 20))
+    func label(for icon:String, isRegular: Bool, color: UIColor) -> UILabel {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 40.0, height: 20))
         let fontName = isRegular ? "FontAwesome5FreeRegular" : "FontAwesome5FreeSolid"
         label.font = UIFont(name: fontName, size: 14.0)
         label.textColor = color
@@ -72,11 +95,6 @@ class PillTextField: UITextField {
         label.textAlignment = .center
         return label
     }
-
-    override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
-        var rect = super.leftViewRect(forBounds: bounds)
-        rect.size.width = 40
-        return rect
-    }
 }
+
 

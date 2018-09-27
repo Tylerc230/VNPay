@@ -37,9 +37,9 @@ class LoginView: UIView {
         Choreo()
             .prepareAnimations {
                 self.userNameField.prepareAnimateIn()
+                self.passwordField.prepareAnimateIn()
                 self.userNameWidth.isActive = false
                 self.passwordWidth.isActive = false
-                self.passwordField.prepareAnimateIn()
                 self.loginButton.prepareAnimationIn(moveAmount: moveY)
                 self.prepareButtonButtonAnimation()
                 self.logo.transform = logoHideTransform
@@ -57,6 +57,10 @@ class LoginView: UIView {
                         view.layoutIfNeeded()
                     }
                     .start()
+            }
+            .addAnimationPhase(startFraction: 0.7, durationFraction: 0.1) { duration in
+                self.userNameField.showContents = true
+                self.passwordField.showContents = true
             }
             .addAnimationPhase(startFraction: 0.3, durationFraction: 0.7) { duration in
                 _ = self.passwordField
@@ -78,8 +82,8 @@ class LoginView: UIView {
     func runDismissAnimation(complete: @escaping () -> ()) {
         Choreo()
             .prepareAnimations {
-//                self.userNameField.showContents = false
-//                self.passwordField.showContents = false
+                self.userNameField.showContents = false
+                self.passwordField.showContents = false
             }
             .addAnimationPhase(startFraction: 0.0, durationFraction: 0.5) { duration in
                 _ = self.userNameField
@@ -156,6 +160,8 @@ fileprivate extension UIView {
 fileprivate extension PillTextField {
     func prepareAnimateIn() {
         alpha = 0.0
+        showContents = false
+
     }
     
     func animate(duration: CFTimeInterval) -> AnimationSequence {
