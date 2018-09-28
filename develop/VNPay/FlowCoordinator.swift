@@ -35,10 +35,21 @@ class FlowCoordinator: NSObject {
 
 extension FlowCoordinator: LoginDelegate {
     func didLogIn(loginView: LoginViewController) {
-        guard let dashboard = loginView.storyboard?.instantiateViewController(withIdentifier: "Dashboard") else {
+        guard let dashboard = loginView.storyboard?.instantiateViewController(withIdentifier: "Dashboard") as? DashboardViewController else {
             return
         }
+        dashboard.delegate = self
         nav.pushViewController(dashboard, animated: true)
+    }
+}
+
+extension FlowCoordinator: DashboardDelegate {
+    func didLogOut() {
+        nav.popViewController(animated: false)
+        guard let login = nav.topViewController as? LoginViewController else {
+            return
+        }
+        login.runShowAnimation()
     }
 }
 

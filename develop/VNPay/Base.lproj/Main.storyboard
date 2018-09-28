@@ -201,9 +201,24 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="WmO-0p-Owo">
                                 <rect key="frame" x="92" y="87" width="136" height="40"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEj-Do-6Bp">
+                                <rect key="frame" x="27" y="29" width="20.5" height="23"/>
+                                <fontDescription key="fontDescription" name="FontAwesome5FreeSolid" family="Font Awesome 5 Free" pointSize="23"/>
+                                <color key="textColor" red="0.16862745100000001" green="0.2901960784" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AT7-tE-qeu">
+                                <rect key="frame" x="267" y="29" width="26" height="23"/>
+                                <fontDescription key="fontDescription" name="FontAwesome5FreeRegular" family="Font Awesome 5 Free" pointSize="23"/>
+                                <color key="textColor" red="0.16862745100000001" green="0.2901960784" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="DEj-Do-6Bp" firstAttribute="top" secondItem="SkQ-pX-fqt" secondAttribute="top" constant="9" id="9gf-hM-9fJ"/>
+                            <constraint firstItem="SkQ-pX-fqt" firstAttribute="trailing" secondItem="AT7-tE-qeu" secondAttribute="trailing" constant="27" id="Cod-Tf-khk"/>
+                            <constraint firstItem="AT7-tE-qeu" firstAttribute="top" secondItem="SkQ-pX-fqt" secondAttribute="top" constant="9" id="FVE-GB-zrG"/>
                             <constraint firstItem="kkt-99-CTw" firstAttribute="leading" secondItem="SkQ-pX-fqt" secondAttribute="leading" constant="35" id="MEX-96-m5h"/>
                             <constraint firstItem="FgF-Ho-Ka8" firstAttribute="centerX" secondItem="YgR-e2-z7v" secondAttribute="centerX" id="Mtm-uS-Z0w"/>
                             <constraint firstItem="WmO-0p-Owo" firstAttribute="centerX" secondItem="YgR-e2-z7v" secondAttribute="centerX" id="OTC-Mk-3OE"/>
@@ -212,12 +227,16 @@
                             <constraint firstItem="FgF-Ho-Ka8" firstAttribute="top" secondItem="SkQ-pX-fqt" secondAttribute="top" constant="104" id="bZZ-sk-0x2"/>
                             <constraint firstItem="SkQ-pX-fqt" firstAttribute="bottom" secondItem="kkt-99-CTw" secondAttribute="bottom" constant="20" placeholder="YES" id="cSy-uJ-BhT"/>
                             <constraint firstItem="WmO-0p-Owo" firstAttribute="top" secondItem="SkQ-pX-fqt" secondAttribute="top" constant="67" id="p3f-zI-6Tn"/>
+                            <constraint firstItem="DEj-Do-6Bp" firstAttribute="leading" secondItem="SkQ-pX-fqt" secondAttribute="leading" constant="27" id="yY9-VS-kso"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SkQ-pX-fqt"/>
                     </view>
                     <connections>
+                        <outlet property="balanceView" destination="FgF-Ho-Ka8" id="K8G-Fi-lNU"/>
                         <outlet property="columns" destination="kkt-99-CTw" id="dJB-wk-pOp"/>
+                        <outlet property="hamburgerButton" destination="DEj-Do-6Bp" id="fQX-ca-7kD"/>
                         <outlet property="logo" destination="WmO-0p-Owo" id="R5t-GD-kFD"/>
+                        <outlet property="shareButton" destination="AT7-tE-qeu" id="VCi-WE-MoM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yhZ-M5-HBw" userLabel="First Responder" sceneMemberID="firstResponder"/>

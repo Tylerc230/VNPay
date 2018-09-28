@@ -52,17 +52,20 @@ class PillTextField: UITextField {
     var showContents: Bool = true {
         didSet {
             if showContents  {
-                self.maskSublayer?.removeFromSuperlayer()
-                self.maskSublayer = nil
+                maskSublayer?.removeFromSuperlayer()
+                maskSublayer = nil
             } else {
+                guard maskSublayer == nil else {
+                    return
+                }
                 let layer = CALayer(layer: self.layer)
                 layer.backgroundColor = UIColor.white.cgColor
-                layer.frame = self.layer.bounds
+                layer.frame = layer.bounds
                 layer.cornerRadius = frame.height/2
                 layer.masksToBounds = true
                 layer.zPosition = 1.0
                 self.layer.addSublayer(layer)
-                self.maskSublayer = layer
+                maskSublayer = layer
             }
         }
     }
