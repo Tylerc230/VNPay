@@ -83,31 +83,32 @@ class LoginView: UIView {
                 self.userNameField.showContents = false
                 self.passwordField.showContents = false
             }
-            .addAnimationPhase(startFraction: 0.0, durationFraction: 0.5) { duration in
+            .addAnimationPhase(startFraction: 0.0, durationFraction: 1.0) { duration in
+                UIView.animate(withDuration: duration) {
+                    self.logo.transform = logoHideTransform
+                }
+            }
+            .addAnimationPhase(startFraction: 0.0, durationFraction: 0.3) { duration in
                 _ = self.userNameField
                     .animate(duration: duration)
+                    .setTiming(.predefined(.easeOut))
                     .addAnimationBlock { view in
                         self.userNameWidth.isActive = false
                         view.layoutIfNeeded()
                     }
                     .then()
+                    //seems like this alpha fade isn't happening after the shrink
                     .setAlpha(to:0.0)
                     .start()
                 _ = self.passwordField
                     .animate(duration: duration)
+                    .setTiming(.predefined(.easeOut))
                     .addAnimationBlock { view in
                         self.passwordWidth.isActive = false
                         view.layoutIfNeeded()
                     }
                     .then()
                     .setAlpha(to:0.0)
-                    .start()
-            }
-            .addAnimationPhase(startFraction: 0.0, durationFraction: 0.375) { duration in
-                _ = self.bottomButtons.disco
-                    .setAlpha(to: 0.0)
-                    .duration(duration)
-                    .setTransform(to: CGAffineTransform(translationX: 0.0, y: self.bottomButtons.frame.height))
                     .start()
             }
             .addAnimationPhase(startFraction: 0.35, durationFraction: 0.15) { duration in
@@ -118,13 +119,15 @@ class LoginView: UIView {
                     .duration(duration)
                     .start()
             }
-            .addAnimationPhase(startFraction: 0.0, durationFraction: 1.0) { duration in
-                UIView.animate(withDuration: duration) {
-                    self.logo.transform = logoHideTransform
-                }
+            .addAnimationPhase(startFraction: 0.0, durationFraction: 0.375) { duration in
+                _ = self.bottomButtons.disco
+                    .setAlpha(to: 0.0)
+                    .duration(duration)
+                    .setTransform(to: CGAffineTransform(translationX: 0.0, y: self.bottomButtons.frame.height))
+                    .start()
             }
             .onComplete(complete)
-            .animate(totalDuration: 0.4)
+            .animate(totalDuration: 2.4)
     }
     
     private func prepareButtonButtonAnimation() {
