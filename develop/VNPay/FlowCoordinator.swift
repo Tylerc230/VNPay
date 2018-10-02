@@ -28,7 +28,7 @@ class FlowCoordinator: NSObject {
         }
         loginView.loginDelegate = self
         loginView.onViewDidAppear = {
-            loginView.runShowAnimation()
+            loginView.runShowAnimation(complete: {})
         }
     }
 }
@@ -45,21 +45,19 @@ extension FlowCoordinator: LoginDelegate {
 
 extension FlowCoordinator: DashboardDelegate {
     func didLogOut() {
-        nav.popViewController(animated: false)
-        guard let login = nav.topViewController as? LoginViewController else {
-            return
-        }
-        login.runShowAnimation()
+        nav.popViewController(animated: true)
     }
 }
 
 extension FlowCoordinator: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch (fromVC, toVC) {
-        case is (LoginViewController, UIViewController):
-            return LoginDashboardAnimation()
+        case is (LoginViewController, DashboardViewController):
+            return LoginDashboardAnimation(push: true)
+        case is (DashboardViewController, LoginViewController):
+            fallthrough
         default:
-            return nil
+            return LoginDashboardAnimation(push: false)
         }
     }
 }

@@ -97,4 +97,43 @@ class DashboardViewController: UIViewController {
             .animate(totalDuration: 0.6)
     }
     
+    func runHideAnimation(_ complete: @escaping () -> ()) {
+        Choreo()
+            .addAnimationPhase(startFraction: 0.0, durationFraction: 0.5) { duration in
+                self.hamburgerButton.disco
+                    .duration(duration)
+                    .setTransform(to: CGAffineTransform(translationX: -2.5, y: 0.0))
+                    .setAlpha(to: 0.0)
+                    .start()
+                
+                self.shareButton.disco
+                    .duration(duration)
+                    .setTransform(to: CGAffineTransform(translationX: 2.5, y: 0.0))
+                    .setAlpha(to: 0.0)
+                    .start()
+            }
+            .addStaggeredAnimation(views: columns.arrangedSubviews.reversed(), startFraction: 0.0, durationFraction: 1.0, delayFraction: 0.05) { (view, duration) in
+                guard let column = view as? UIStackView else {
+                    return
+                }
+                column.arrangedSubviews.forEach { button in
+                    button.disco
+                        .duration(duration)
+                        .setTransform(to: CGAffineTransform(scaleX: 1.1, y: 1.1))
+                        .then()
+                        .setTransform(to: CGAffineTransform(scaleX: 0.0, y: 0.0))
+                        .start()
+                }
+            }
+            .addAnimationPhase(startFraction: 0.5, durationFraction: 0.5) { duration in
+                self.balanceView.disco
+                    .duration(duration)
+                    .setTransform(to: CGAffineTransform(translationX: 0.0, y: 30.0))
+                    .setAlpha(to: 0.0)
+                    .start()
+            }
+            .onComplete(complete)
+            .animate(totalDuration: 0.5)
+    }
+    
 }

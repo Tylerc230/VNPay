@@ -29,7 +29,7 @@ class LoginView: UIView {
         triangleAnimationView.setAnimation(named: "triangle_animation.json")
     }
     
-    func runShowAnimation() {
+    func runShowAnimation(complete: @escaping () -> ()) {
         let moveY = loginButton.frame.size.height/2
         
         Choreo()
@@ -74,6 +74,7 @@ class LoginView: UIView {
             .addStaggeredAnimation(views: bottomButtons.arrangedSubviews, startFraction: 0.5, durationFraction: 0.5, delayFraction: 0.2) { (view, duration) in
                 view.animateIn(moveAmount: 10.0, duration: duration)
             }
+            .onComplete(complete)
             .animate(totalDuration: 0.85)
     }
     
@@ -127,7 +128,7 @@ class LoginView: UIView {
                     .start()
             }
             .onComplete(complete)
-            .animate(totalDuration: 2.4)
+            .animate(totalDuration: 0.4)
     }
     
     private func prepareButtonButtonAnimation() {

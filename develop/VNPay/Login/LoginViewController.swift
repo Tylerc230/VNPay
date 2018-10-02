@@ -28,8 +28,8 @@ class LoginViewController: UIViewController {
         loginDelegate?.didLogIn(loginView: self)
     }
     
-    func runShowAnimation() {
-        loginView.runShowAnimation()
+    func runShowAnimation(complete: @escaping () -> ()) {
+        loginView.runShowAnimation(complete: complete)
     }
     
     func runDismissAnimation(complete: @escaping () -> ()) {
