@@ -50,6 +50,7 @@ class LoginView: UIView {
             .addAnimationPhase(startFraction: 0.2, durationFraction: 0.7) { duration in
                 _ = self.userNameField
                     .animate(duration: duration)
+                    .setAlpha(to: 1.0)
                     .addAnimationBlock { view in
                         self.userNameWidth.isActive = true
                         view.layoutIfNeeded()
@@ -63,6 +64,7 @@ class LoginView: UIView {
             .addAnimationPhase(startFraction: 0.3, durationFraction: 0.7) { duration in
                 _ = self.passwordField
                     .animate(duration: duration)
+                    .setAlpha(to: 1.0)
                     .addAnimationBlock { view in
                         self.passwordWidth.isActive = true
                         view.layoutIfNeeded()
@@ -89,26 +91,26 @@ class LoginView: UIView {
                     self.logo.transform = logoHideTransform
                 }
             }
-            .addAnimationPhase(startFraction: 0.0, durationFraction: 0.3) { duration in
+            .addAnimationPhase(startFraction: 0.0, durationFraction: 0.6) { duration in
                 _ = self.userNameField
-                    .animate(duration: duration)
-                    .setTiming(.predefined(.easeOut))
+                    .animate(duration: duration/2)
                     .addAnimationBlock { view in
                         self.userNameWidth.isActive = false
                         view.layoutIfNeeded()
                     }
                     .then()
+                    .duration(duration/2)
                     //seems like this alpha fade isn't happening after the shrink
                     .setAlpha(to:0.0)
                     .start()
                 _ = self.passwordField
-                    .animate(duration: duration)
-                    .setTiming(.predefined(.easeOut))
+                    .animate(duration: duration/2)
                     .addAnimationBlock { view in
                         self.passwordWidth.isActive = false
                         view.layoutIfNeeded()
                     }
                     .then()
+                    .duration(duration/2)
                     .setAlpha(to:0.0)
                     .start()
             }
@@ -170,6 +172,5 @@ fileprivate extension PillTextField {
         return disco
             .duration(duration)
             .setTiming(.bezier(CGPoint(x: 0.33, y: 0.79), CGPoint(x: 0.34, y: 1.0)))
-            .setAlpha(to: 1.0)
     }
 }

@@ -112,21 +112,24 @@ class DashboardViewController: UIViewController {
                     .setAlpha(to: 0.0)
                     .start()
             }
-            .addStaggeredAnimation(views: columns.arrangedSubviews.reversed(), startFraction: 0.0, durationFraction: 1.0, delayFraction: 0.05) { (view, duration) in
+            .addStaggeredAnimation(views: columns.arrangedSubviews.reversed(), startFraction: 0.0, durationFraction: 1.0, delayFraction: 0.1) { (view, duration) in
                 guard let column = view as? UIStackView else {
                     return
                 }
                 column.arrangedSubviews.forEach { button in
                     button.disco
-                        .duration(duration)
-                        .setTransform(to: CGAffineTransform(scaleX: 1.1, y: 1.1))
+                        .duration(duration/2)
+                        .setTiming(.springBased(0.3))
+                        .setTransform(to: CGAffineTransform(scaleX: 1.25, y: 1.25))
                         .then()
+                        .duration(duration/2)
                         .setTransform(to: CGAffineTransform(scaleX: 0.0, y: 0.0))
                         .start()
                 }
             }
             .addAnimationPhase(startFraction: 0.5, durationFraction: 0.5) { duration in
                 self.balanceView.disco
+                    .setTiming(.predefined(.easeIn))
                     .duration(duration)
                     .setTransform(to: CGAffineTransform(translationX: 0.0, y: 30.0))
                     .setAlpha(to: 0.0)
