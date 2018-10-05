@@ -134,6 +134,8 @@ class LoginView: UIView {
     }
     
     private func prepareButtonButtonAnimation() {
+        bottomButtons.transform = .identity
+        bottomButtons.alpha = 1.0
         let buttons = bottomButtons.arrangedSubviews
         buttons.forEach{ $0.prepareAnimationIn(moveAmount: 10.0) }
     }
@@ -168,6 +170,7 @@ fileprivate extension PillTextField {
 
     }
     
+    //todo remove this
     func animate(duration: CFTimeInterval) -> AnimationSequence {
         return disco
             .duration(duration)
