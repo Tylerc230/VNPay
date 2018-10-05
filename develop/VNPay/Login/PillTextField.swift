@@ -42,11 +42,13 @@ class PillTextField: UITextField {
     @objc
     private func startedEditing() {
         layer.setActive(true, animated: true)
+        textColor = UIColor(named: "DarkBlue")
     }
    
     @objc
     private func stopEditing() {
         layer.setActive(false, animated: true)
+        textColor = UIColor(named: "ValidGreen")
     }
     
     var showContents: Bool = true {
