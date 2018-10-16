@@ -170,7 +170,6 @@ fileprivate extension PillTextField {
 
     }
     
-    //todo remove this
     func animate(duration: CFTimeInterval) -> AnimationSequence {
         return disco
             .duration(duration)

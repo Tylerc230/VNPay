@@ -163,7 +163,7 @@
         <scene sceneID="uXS-ph-qhJ">
             <objects>
                 <viewController storyboardIdentifier="Dashboard" id="6Qx-eB-03f" customClass="DashboardViewController" customModule="VNPay" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YgR-e2-z7v">
+                    <view key="view" contentMode="scaleToFill" id="YgR-e2-z7v" customClass="DashboardView" customModule="VNPay" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -236,14 +236,14 @@
                             <constraint firstItem="DEj-Do-6Bp" firstAttribute="leading" secondItem="SkQ-pX-fqt" secondAttribute="leading" constant="27" id="yY9-VS-kso"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SkQ-pX-fqt"/>
+                        <connections>
+                            <outlet property="balanceView" destination="FgF-Ho-Ka8" id="pdT-2U-hse"/>
+                            <outlet property="columns" destination="kkt-99-CTw" id="Zez-AJ-4AJ"/>
+                            <outlet property="hamburgerButton" destination="DEj-Do-6Bp" id="y2b-eg-CcX"/>
+                            <outlet property="logo" destination="WmO-0p-Owo" id="xZI-vl-uo7"/>
+                            <outlet property="shareButton" destination="AT7-tE-qeu" id="eRq-YX-RaZ"/>
+                        </connections>
                     </view>
-                    <connections>
-                        <outlet property="balanceView" destination="FgF-Ho-Ka8" id="K8G-Fi-lNU"/>
-                        <outlet property="columns" destination="kkt-99-CTw" id="dJB-wk-pOp"/>
-                        <outlet property="hamburgerButton" destination="DEj-Do-6Bp" id="fQX-ca-7kD"/>
-                        <outlet property="logo" destination="WmO-0p-Owo" id="R5t-GD-kFD"/>
-                        <outlet property="shareButton" destination="AT7-tE-qeu" id="VCi-WE-MoM"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yhZ-M5-HBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
