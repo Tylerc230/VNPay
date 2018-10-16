@@ -1,11 +1,11 @@
 PODS:
-  - Choreo (0.1.0)
-  - Disco (0.1.0)
+  - Choreo (1.0.0)
+  - Disco (1.0.0)
   - lottie-ios (2.5.0)
 
 DEPENDENCIES:
-  - Choreo (from `~/Dropbox/shared_code/AnimationLibs/Choreo`)
-  - Disco (from `~/Dropbox/shared_code/AnimationLibs/Disco`)
+  - Choreo (from `https://github.com/Tylerc230/Choreo.git`, tag `1.0.0`)
+  - Disco (from `https://github.com/Tylerc230/Disco.git`, tag `1.0.0`)
   - lottie-ios
 
 SPEC REPOS:
@@ -14,15 +14,25 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Choreo:
-    :path: "~/Dropbox/shared_code/AnimationLibs/Choreo"
+    :git: https://github.com/Tylerc230/Choreo.git
+    :tag: 1.0.0
   Disco:
-    :path: "~/Dropbox/shared_code/AnimationLibs/Disco"
+    :git: https://github.com/Tylerc230/Disco.git
+    :tag: 1.0.0
+
+CHECKOUT OPTIONS:
+  Choreo:
+    :git: https://github.com/Tylerc230/Choreo.git
+    :tag: 1.0.0
+  Disco:
+    :git: https://github.com/Tylerc230/Disco.git
+    :tag: 1.0.0
 
 SPEC CHECKSUMS:
-  Choreo: 775830736a7b1db1a920a88e9197b3431f36cf5a
-  Disco: 938b045709ba48eab7df05ecf83ddf7bcb53538f
+  Choreo: 4bf4bca5eb2c77c9324fb039e22498c90fb7e881
+  Disco: 5ef0df3b6f9aa34166df10228ae6038dd5618f45
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
 
-PODFILE CHECKSUM: ca419e02e97f5df562eef656d4c20c10e19e382a
+PODFILE CHECKSUM: eb2d6cd6d369ee85d9c83304023d586cb9a22680
 
 COCOAPODS: 1.5.3

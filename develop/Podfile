@@ -1,7 +1,7 @@
 use_frameworks!
-platform :ios, '10.0'
+platform :ios, '11.0'
 target 'VNPay' do
   pod 'lottie-ios'
-  pod 'Disco', :path => '~/Dropbox/shared_code/AnimationLibs/Disco'
-  pod 'Choreo', :path => '~/Dropbox/shared_code/AnimationLibs/Choreo'
+  pod 'Choreo', :git => 'https://github.com/Tylerc230/Choreo.git', :tag => '1.0.0'
+  pod 'Disco', :git => 'https://github.com/Tylerc230/Disco.git', :tag => '1.0.0'
 end
